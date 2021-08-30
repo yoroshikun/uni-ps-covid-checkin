@@ -1,0 +1,31 @@
+import type { NextApiRequest, NextApiResponse } from 'next';
+import prisma from '../../lib/prisma';
+
+interface Input {
+  uid: string;
+  location: string;
+}
+
+/**
+ * Creates a new checkIn item taking the user's uid and location
+ *
+ * @param req - {uid, location}
+ * @param res - response object
+ *
+ * @returns CheckIn
+ */
+const checkIn = async (req: NextApiRequest, res: NextApiResponse) => {
+  try {
+    const { uid, location } = req.body as Input;
+
+    const checkIn = await prisma.checkIn.create({
+      data: { uid, location },
+    });
+
+    res.status(201).json(checkIn);
+  } catch (error: any) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export default checkIn;
