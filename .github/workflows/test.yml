@@ -5,6 +5,7 @@ on:
 
 jobs:
   test:
+    if: ${{ github.repository_owner == 'UniSA-PS-Web-Pain' }}
     name: Test
     runs-on: ubuntu-latest
     steps:

@@ -1,0 +1,15 @@
+on: push
+jobs:
+  git-sync:
+    if: ${{ github.repository_owner == 'UniSA-PS-Web-Pain' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: git-sync
+        uses: wei/git-sync@v3
+        with:
+          source_repo: 'UniSA-PS-Web-Pain/uni-ps-covid-checkin'
+          source_branch: 'refs/remotes/source/*'
+          destination_branch: 'refs/heads/*'
+          destination_repo: 'yoroshikun/uni-ps-covid-checkin'
+          source_ssh_private_key: ${{ secrets.SOURCE_SSH_PRIVATE_KEY }}
+          destination_ssh_private_key: ${{ secrets.DESTINATION_SSH_PRIVATE_KEY }}
