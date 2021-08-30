@@ -1,7 +1,7 @@
 on:
-  pull-request:
+  push:
     branches:
-      - main
+      - '*'
 
 jobs:
   test:
@@ -17,3 +17,5 @@ jobs:
           headless: true
           build: npm run build
           start: npm run start
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
