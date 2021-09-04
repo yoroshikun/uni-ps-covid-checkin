@@ -23,9 +23,9 @@ const Report: NextPage<{ feed: CheckIn[] }> = ({ feed }) => {
               marginBottom: '1rem',
             }}
           >
-            <h2>{item.uid}</h2>
-            <h3>{item.location}</h3>
-            <p>{item.timestamp.toString()}</p>
+            <h2>UserId: {item.userId}</h2>
+            <h3>location: {item.location}</h3>
+            <p>time: {item.timestamp.toString()}</p>
           </div>
         ))}
       </div>

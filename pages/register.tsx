@@ -1,10 +1,10 @@
 import type { NextPage } from 'next';
 
-import CheckInForm from '../components/Form/CheckInForm';
+import RegisterForm from '../components/Form/RegisterForm';
 import Head from '../components/Layout/Head';
 import styles from '../styles/Home.module.css';
 
-const Home: NextPage = () => {
+const Register: NextPage = () => {
   return (
     <div className={styles.container}>
       <Head
@@ -12,10 +12,10 @@ const Home: NextPage = () => {
         description="Check in with ease with this Terminal"
       />
 
-      <h1>Covid Check-in</h1>
-      <CheckInForm />
+      <h1>Register for new account</h1>
+      <RegisterForm />
     </div>
   );
 };
 
-export default Home;
+export default Register;

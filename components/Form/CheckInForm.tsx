@@ -4,7 +4,7 @@ interface FormData {
   uid: string;
 }
 
-const Form = () => {
+const CheckInForm = () => {
   const {
     register,
     handleSubmit,
@@ -19,7 +19,7 @@ const Form = () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        uid: data.uid,
+        uid: Number(data.uid),
         location: 'Coles - Churchill Road',
       }),
     });
@@ -43,4 +43,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default CheckInForm;

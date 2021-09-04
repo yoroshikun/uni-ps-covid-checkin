@@ -2,24 +2,28 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '../../lib/prisma';
 
 interface Input {
-  uid: number;
-  location: string;
+  name: string;
+  email?: string;
+  phone?: string;
 }
 
 /**
- * Creates a new checkIn item taking the user's uid and location
+ * Register a new user
  *
- * @param req - {uid, location}
+ * @param req - { name, email, phone }
  * @param res - response object
  *
- * @returns CheckIn
+ * @returns User
  */
 const checkIn = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const { uid, location } = req.body as Input;
+    const { name, email, phone } = req.body as Input;
 
-    const checkIn = await prisma.checkIn.create({
-      data: { user: { connect: { uid } }, location },
+    // Generate new id for user using length of current users
+    const uid = (await prisma.user.count()) + 1;
+
+    const checkIn = await prisma.user.create({
+      data: { uid, name, email, phone },
     });
 
     res.status(201).json(checkIn);
