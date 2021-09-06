@@ -1,0 +1,54 @@
+.input {
+  display: block;
+  width: 100%;
+  padding: 0.2em;
+  margin: 0.2em 0 0.6em;
+  font-size: 1.2em;
+}
+
+.input [type='text'] {
+  display: block;
+  width: 100%;
+  padding: 0.2em;
+  margin: 0.2em 0 0.8em;
+  font-size: 1.2em;
+}
+
+.input ::placeholder {
+  font-size: 1em;
+}
+
+.errorMessage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.registerButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.registerButton [type='submit'] {
+  background-color: #68c188;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition-duration: 0.4s;
+}
+
+.registerButton [type='submit']:hover {
+  background-color: #4caf50;
+  color: white;
+}

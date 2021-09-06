@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import styles from '../../styles/RegisterForm.module.css';
 
 interface FormData {
   name: string;
@@ -34,28 +35,46 @@ const RegisterForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input
-        placeholder="Please enter your name"
-        {...register('name', { required: true })}
-      />
-      <input
-        placeholder="Please enter your email if you have one"
-        {...register('email')}
-      />
-      <input
-        placeholder="Please enter your phone number if you have one"
-        {...register('phone')}
-      />
-      <input type="submit" value="Register" />
-      {errors.name && (
-        <span className="error-message">Please enter a name</span>
-      )}
-      {errors.email && (
-        <span className="error-message">Please enter a valid Email</span>
-      )}
-      {errors.phone && (
-        <span className="error-message">Please enter a valid Phone Number</span>
-      )}
+      <div className={styles.input}>
+        <label>Name:</label>
+        <input
+          placeholder="Please enter your name"
+          type="text"
+          {...register('name', { required: true })}
+        />
+        <label>Email:</label>
+        <input
+          placeholder="Please enter your email if you have one"
+          type="text"
+          {...register('email')}
+        />
+        <label>Phone:</label>
+        <input
+          placeholder="Please enter your phone number if you have one"
+          type="text"
+          {...register('phone')}
+        />
+      </div>
+
+      <div className={styles.registerButton}>
+        <button type="submit" value="Register">
+          Register
+        </button>
+      </div>
+
+      <div className={styles.errorMessage}>
+        {errors.name && (
+          <span className="error-message">Please enter a name</span>
+        )}
+        {errors.email && (
+          <span className="error-message">Please enter a valid Email</span>
+        )}
+        {errors.phone && (
+          <span className="error-message">
+            Please enter a valid Phone Number
+          </span>
+        )}
+      </div>
     </form>
   );
 };

@@ -16,3 +16,21 @@
   justify-content: center;
   align-items: center;
 }
+
+.topFrame {
+  width: 210rem;
+  height: 3.2rem;
+  background-color: #738fb5;
+  overflow: visible;
+  position: fixed;
+  top: 0;
+}
+
+.bottomFrame {
+  width: 210rem;
+  height: 3.2rem;
+  background-color: #738fb5;
+  overflow: visible;
+  position: fixed;
+  bottom: 0;
+}
