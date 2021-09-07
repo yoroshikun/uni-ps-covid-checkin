@@ -32,6 +32,12 @@ First, install dependencies:
 yarn
 ```
 
+Install husky hooks
+
+```bash
+yarn prepare
+```
+
 Now you can run a dev server
 
 ```bash
@@ -45,6 +51,8 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 [API routes](https://nextjs.org/docs/api-routes/introduction). Can be edited in `pages/api/*.ts`.
 
 ## Linting and Styling
+
+> This is now automated with husky
 
 Linting and styling is handled automatically with a command, these commands will run on each PR to main however it is best to run them before any commit
 
