@@ -42,6 +42,7 @@ const RegisterForm = () => {
 
       const json = (await response.json()) as User;
       setUID(json.uid);
+      setStage(1);
     } catch (err: any) {
       setError(err.message);
     }
