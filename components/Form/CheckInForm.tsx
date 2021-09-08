@@ -14,6 +14,7 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
     handleSubmit,
     formState: { errors },
     watch,
+    setValue,
   } = useForm();
 
   const location: string = watch('location', '');
@@ -43,7 +44,7 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
       const json = (await response.json()) as CheckIn & { user: User };
       setName(json.user.name);
       setStage(1);
-    } catch (error) {
+    } catch (error: any) {
       setError(
         `Something went wrong when checking in please see staff assistance - ${error.message}`
       );
@@ -91,12 +92,26 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
     <div>
       <h1>Check-In Successful!</h1>
       <h3>{`Thank you for checking in at ${location} today ${name}`}</h3>
-      <button onClick={() => setStage(0)}>Check-In Again</button>
+      <button
+        onClick={() => {
+          setStage(0);
+          setValue('uid', '');
+        }}
+      >
+        Check-In Again
+      </button>
     </div>
   ) : stage === 2 ? (
     <div>
       <h3>{error}</h3>
-      <button onClick={() => setStage(0)}>Check-In Again</button>
+      <button
+        onClick={() => {
+          setStage(0);
+          setValue('uid', '');
+        }}
+      >
+        Check-In Again
+      </button>
     </div>
   ) : null;
 };

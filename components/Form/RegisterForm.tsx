@@ -1,4 +1,7 @@
+import type { User } from '@prisma/client';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+
 import styles from '../../styles/RegisterForm.module.css';
 
 interface FormData {
@@ -14,26 +17,37 @@ const RegisterForm = () => {
     formState: { errors },
   } = useForm();
 
+  const [uid, setUID] = useState<undefined | number>();
+  const [error, setError] = useState('');
+  const [stage, setStage] = useState(0);
+
   const onSubmit = async ({ name, email, phone }: FormData) => {
-    // Use the API to create new check in
-    const response = await fetch(`/api/register`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name,
-        email,
-        phone,
-      }),
-    });
+    try {
+      // Use the API to create new check in
+      const response = await fetch(`/api/register`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+        }),
+      });
 
-    console.log(response);
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
 
-    return;
+      const json = (await response.json()) as User;
+      setUID(json.uid);
+    } catch (err: any) {
+      setError(err.message);
+    }
   };
 
-  return (
+  return stage === 0 ? (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.input}>
         <label>Name:</label>
@@ -84,7 +98,35 @@ const RegisterForm = () => {
         )}
       </div>
     </form>
-  );
+  ) : stage === 1 ? (
+    <div>
+      <h2>You have successfully registered!</h2>
+      <p>{`Your UID is: ${uid}`}</p>
+      <button
+        onClick={() => {
+          setStage(0);
+          setUID(undefined);
+          setError('');
+        }}
+      >
+        Go back
+      </button>
+    </div>
+  ) : stage === 2 ? (
+    <div>
+      <h2>An error has occured!</h2>
+      <p>{error}</p>
+      <button
+        onClick={() => {
+          setStage(0);
+          setUID(undefined);
+          setError('');
+        }}
+      >
+        Go back
+      </button>
+    </div>
+  ) : null;
 };
 
 export default RegisterForm;
