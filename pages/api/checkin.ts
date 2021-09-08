@@ -19,7 +19,11 @@ const checkIn = async (req: NextApiRequest, res: NextApiResponse) => {
     const { uid, location } = req.body as Input;
 
     const checkIn = await prisma.checkIn.create({
-      data: { user: { connect: { uid } }, location },
+      data: {
+        user: { connect: { uid } },
+        location: { connect: { name: location } },
+      },
+      include: { user: true },
     });
 
     res.status(201).json(checkIn);
