@@ -65,15 +65,22 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
         />
       </div>
 
-      <label>Location:</label>
-      <select {...register('location', { required: true })}>
-        {locations.map((location) => (
-          <option key={location.id} value={location.name}>
-            {location.name}
-          </option>
-        ))}
-      </select>
+      <div className={styles.locationWrapper}>
+        <div className={styles.location}>
+          <div className={styles.locationTrigger}>
+            <label>Location:</label>
+            <br></br>
 
+            <select {...register('location', { required: true })}>
+              {locations.map((location) => (
+                <option key={location.id} value={location.name}>
+                  {location.name}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+      </div>
       <br></br>
 
       <div className={styles.submitButton}>
