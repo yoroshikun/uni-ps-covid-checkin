@@ -40,19 +40,27 @@ const RegisterForm = () => {
         <input
           placeholder="Please enter your name"
           type="text"
-          {...register('name', { required: true })}
+          {...register('name', {
+            required: true,
+            maxLength: 26,
+            pattern: /^[A-Za-z ]+$/,
+          })}
         />
         <label>Email:</label>
         <input
           placeholder="Please enter your email if you have one"
           type="text"
-          {...register('email')}
+          {...register('email', {
+            pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+          })}
         />
         <label>Phone:</label>
         <input
           placeholder="Please enter your phone number if you have one"
           type="text"
-          {...register('phone')}
+          {...register('phone', {
+            pattern: /^(?:\+?61|0)[2-478](?:[ -]?[0-9]){8}$/,
+          })}
         />
       </div>
 
