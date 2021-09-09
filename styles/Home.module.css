@@ -1,11 +1,77 @@
 .container {
-  min-height: 100vh;
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
+  width: 87%;
+  margin-left: 20rem;
+  margin-top: 2rem;
+  background-color: white;
+  position: fixed;
+}
+
+.topWindow {
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  height: 2rem;
+  width: 87%;
+  margin-left: 20rem;
+  margin-bottom: 43rem;
+  background-color: #cccccc;
+  position: fixed;
+}
+
+.leftWindow {
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+  width: 20rem;
+  margin-right: 63rem;
+  background-color: #6678a3;
+  position: fixed;
+}
+
+.leftWindow p {
+  margin-top: -1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+.human {
+  margin-top: 35rem;
+  margin-right: 1.7rem;
+  position: absolute;
+  display: flex;
+}
+
+.line1 {
+  font-size: 25px;
+}
+
+.line2 {
+  font-size: 28px;
+}
+
+.line3 {
+  font-size: 15px;
+}
+
+.background {
+  background-color: #8b94c1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
 }
 
 .main {
@@ -13,24 +79,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  position: relative;
   justify-content: center;
   align-items: center;
-}
-
-.topFrame {
-  width: 210rem;
-  height: 3.2rem;
-  background-color: #738fb5;
-  overflow: visible;
-  position: fixed;
-  top: 0;
-}
-
-.bottomFrame {
-  width: 210rem;
-  height: 3.2rem;
-  background-color: #738fb5;
-  overflow: visible;
-  position: fixed;
-  bottom: 0;
 }
