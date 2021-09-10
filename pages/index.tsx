@@ -10,7 +10,7 @@ import humanImage from '../public/Human.png';
 
 const Home: NextPage<{ locations: Location[] }> = ({ locations }) => {
   return (
-    <div>
+    <div className={styles.mainContainer}>
       <div className={styles.leftWindow}>
         <p className={styles.line1}>Welcome to</p>
         <p className={styles.line2}>COVID CHECK-IN</p>
@@ -25,14 +25,17 @@ const Home: NextPage<{ locations: Location[] }> = ({ locations }) => {
           />
         </div>
       </div>
-      <div className={styles.topWindow}></div>
-      <div className={styles.container}>
+
+      <div className={styles.rightContainer}>
+        <div className={styles.topWindow}></div>
+
         <Head
           title="Covid Check-in Terminal"
           description="Check in with ease with this Terminal"
         />
-
-        <CheckInForm locations={locations} />
+        <div className={styles.subContainer}>
+          <CheckInForm locations={locations} />
+        </div>
       </div>
     </div>
   );

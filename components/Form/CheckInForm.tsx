@@ -4,6 +4,7 @@ import { useForm, useWatch } from 'react-hook-form';
 import styles from '../../styles/CheckInForm.module.css';
 import Image from 'next/image';
 import userIcon from '../../public/userIcon.png';
+import Link from 'next/link';
 
 interface FormData {
   uid: string;
@@ -82,9 +83,11 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
           Check-In
         </button>
 
-        <button type="button" value="QR Scan">
-          Scan QR
-        </button>
+        <Link href="/qrtest">
+          <button type="button" value="QR Scan">
+            Scan QR
+          </button>
+        </Link>
       </div>
 
       {errors.uid && (
@@ -94,7 +97,7 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
       )}
     </form>
   ) : stage === 1 ? (
-    <div>
+    <div className={styles.checkinButton}>
       <h1>Check-In Successful!</h1>
       <h3>{`Thank you for checking in at ${location} today ${name}`}</h3>
       <button
@@ -107,7 +110,7 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
       </button>
     </div>
   ) : stage === 2 ? (
-    <div>
+    <div className={styles.checkinButton}>
       <h3>{error}</h3>
       <button
         onClick={() => {

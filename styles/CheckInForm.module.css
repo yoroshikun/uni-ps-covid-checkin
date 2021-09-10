@@ -13,6 +13,30 @@
   position: absolute;
 }
 
+.checkinButton button {
+  background-color: #6678a3;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition-duration: 0.4s;
+  width: 18rem;
+  margin-top: 2rem;
+  margin-left: 13rem;
+}
+
+.checkinButton button:hover {
+  background-color: #7c8eb6;
+  color: white;
+}
+
 .input {
   display: block;
   width: 100%;

@@ -1,15 +1,22 @@
-.container {
+.mainContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.rightContainer {
+  height: 100vh;
+  flex-grow: 1;
+}
+
+.subContainer {
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 87%;
-  margin-left: 20rem;
-  margin-top: 2rem;
+  height: calc(100% - 2rem);
   background-color: white;
-  position: fixed;
+  overflow: hidden;
 }
 
 .topWindow {
@@ -19,11 +26,8 @@
   justify-content: center;
   align-items: flex-end;
   height: 2rem;
-  width: 87%;
-  margin-left: 20rem;
-  margin-bottom: 43rem;
+  width: 100%;
   background-color: #cccccc;
-  position: fixed;
 }
 
 .leftWindow {
@@ -32,11 +36,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
-  height: 100%;
+  height: 100vh;
   width: 20rem;
-  margin-right: 63rem;
   background-color: #6678a3;
-  position: fixed;
 }
 
 .leftWindow p {
