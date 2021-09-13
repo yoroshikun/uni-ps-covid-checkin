@@ -26,6 +26,14 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
   const onSubmit = async (data: FormData) => {
     try {
       // Use the API to create new check in
+
+      if (!navigator.onLine) {
+        console.log('you are offline');
+        return;
+      }
+
+      console.log('hello');
+
       const response = await fetch(`/api/checkin`, {
         method: 'POST',
         headers: {
