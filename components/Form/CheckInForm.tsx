@@ -29,6 +29,13 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
 
       if (!navigator.onLine) {
         console.log('you are offline');
+        let obj = {
+          uid: JSON.stringify(Number(data.uid)),
+          timestamp: JSON.stringify(Date.now),
+        };
+        const offlineArray = [];
+        offlineArray.push(JSON.stringify(obj));
+        console.log(offlineArray);
         return;
       }
 
