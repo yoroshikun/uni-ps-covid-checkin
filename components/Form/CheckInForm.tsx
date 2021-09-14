@@ -1,6 +1,8 @@
-import { CheckIn, Location, User } from '@prisma/client';
+import { Location } from '@prisma/client';
 import { useState } from 'react';
-import { useForm, useWatch } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
+
+import checkInUser from '../../lib/checkInUser';
 import styles from '../../styles/CheckInForm.module.css';
 import Image from 'next/image';
 import userIcon from '../../public/userIcon.png';
@@ -28,24 +30,9 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
 
   const onSubmit = async (data: FormData) => {
     try {
-      // Use the API to create new check in
-      const response = await fetch(`/api/checkin`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          uid: Number(data.uid),
-          location: data.location,
-        }),
-      });
+      const checkIn = await checkInUser(data);
 
-      if (!response.ok) {
-        throw new Error(response.statusText);
-      }
-
-      const json = (await response.json()) as CheckIn & { user: User };
-      setName(json.user.name);
+      setName(checkIn.user.name);
       setStage(1);
     } catch (error: any) {
       setError(
