@@ -1,6 +1,7 @@
 import type { User } from '@prisma/client';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import QRCode from 'react-qr-code';
 
 import styles from '../../styles/RegisterForm.module.css';
 
@@ -17,7 +18,7 @@ const RegisterForm = () => {
     formState: { errors },
   } = useForm();
 
-  const [uid, setUID] = useState<undefined | number>();
+  const [uid, setUID] = useState<undefined | string>();
   const [error, setError] = useState('');
   const [stage, setStage] = useState(0);
 
@@ -41,7 +42,7 @@ const RegisterForm = () => {
       }
 
       const json = (await response.json()) as User;
-      setUID(json.uid);
+      setUID(String(json.uid).padStart(7, '0'));
       setStage(1);
     } catch (err: any) {
       setError(err.message);
@@ -103,6 +104,8 @@ const RegisterForm = () => {
     <div>
       <h2>You have successfully registered!</h2>
       <p>{`Your UID is: ${uid}`}</p>
+      <p>Your QR Code is:</p>
+      <QRCode value={`${Buffer.from(uid || '').toString('base64')}`} />
       <button
         onClick={() => {
           setStage(0);

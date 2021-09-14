@@ -12,8 +12,9 @@ const QRTest: NextPage = () => {
 
   const handleScan = (data: string | null) => {
     if (data) {
-      setResult(data);
-      console.log(data);
+      const decoded = Buffer.from(data, 'base64').toString('utf8');
+
+      setResult(decoded);
     }
   };
 
@@ -22,12 +23,12 @@ const QRTest: NextPage = () => {
   };
 
   if (typeof window === 'undefined') {
-    return <>loading</>;
+    return <>loading...</>;
   }
 
   return (
     <div className={styles.container}>
-      <Head title="QRTest" description="Report for Covid Check-in QRTest" />
+      <Head title="QRReader" description="Covid Checkin QRReader" />
 
       <h1>QRTest</h1>
       <QrReader
@@ -36,7 +37,7 @@ const QRTest: NextPage = () => {
         onScan={handleScan}
         style={{ width: 400, height: 400 }}
       />
-      <p>Scanned value: {result}</p>
+      <p>UID IS: {result}</p>
     </div>
   );
 };
