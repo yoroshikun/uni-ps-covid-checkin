@@ -53,6 +53,7 @@ const RegisterForm = () => {
       <div className={styles.input}>
         <label>Name:</label>
         <input
+          id="user-Name"
           placeholder="Please enter your name"
           type="text"
           {...register('name', {
@@ -63,6 +64,7 @@ const RegisterForm = () => {
         />
         <label>Email:</label>
         <input
+          id="user-Email"
           placeholder="Please enter your email if you have one"
           type="text"
           {...register('email', {
@@ -71,6 +73,7 @@ const RegisterForm = () => {
         />
         <label>Phone:</label>
         <input
+          id="user-PhoneNumber"
           placeholder="Please enter your phone number if you have one"
           type="text"
           {...register('phone', {
