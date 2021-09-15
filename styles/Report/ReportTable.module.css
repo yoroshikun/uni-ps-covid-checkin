@@ -28,7 +28,6 @@
 .table td {
   border-left: 1px solid #c4c3c3;
   border-right: 1px solid #c4c3c3;
-  border-radius: 5px;
   padding: 0.5rem 0.5rem 1rem;
 }
 
@@ -124,4 +123,11 @@
 
 .buttonContainer p {
   font-size: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
