@@ -3,7 +3,7 @@ import styles from '../../styles/Report/ReportTable.module.css';
 
 const ReportTable = ({ checkIns }: { checkIns: fullCheckIn[] }) => {
   return (
-    <>
+    <div>
       <table className={styles.table}>
         <thead>
           <tr>
@@ -28,7 +28,7 @@ const ReportTable = ({ checkIns }: { checkIns: fullCheckIn[] }) => {
           ))}
         </tbody>
       </table>
-    </>
+    </div>
   );
 };
 

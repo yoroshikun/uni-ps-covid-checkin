@@ -1,7 +1,7 @@
 import type { GetStaticProps, NextPage } from 'next';
 import useSWR from 'swr';
 
-import styles from '../styles/Home.module.css';
+import styles from '../styles/Report/ReportTable.module.css';
 import prisma from '../lib/prisma';
 import fetcher from '../lib/fetcher';
 import Head from '../components/Layout/Head';
