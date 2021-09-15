@@ -7,6 +7,7 @@ import styles from '../../styles/CheckInForm.module.css';
 import Image from 'next/image';
 import userIcon from '../../public/userIcon.png';
 import Link from 'next/link';
+import handleOffline from '../../lib/handleOffline';
 
 interface FormData {
   uid: string;
@@ -30,7 +31,20 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
 
   const onSubmit = async (data: FormData) => {
     try {
-      const checkIn = await checkInUser(data);
+      const isOnline = await handleOffline(
+        { uid: data.uid, timestamp: Date.now().toString() },
+        locations[0].name
+      );
+
+      if (!isOnline) {
+        setStage(3);
+        return;
+      }
+
+      const checkIn = await checkInUser({
+        ...data,
+        location: locations[0].name,
+      });
 
       setName(checkIn.user.name);
       setStage(1);
@@ -101,6 +115,21 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
   ) : stage === 2 ? (
     <div className={styles.checkinButton}>
       <h3>{error}</h3>
+      <button
+        onClick={() => {
+          setStage(0);
+          setValue('uid', '');
+        }}
+      >
+        Check-In Again
+      </button>
+    </div>
+  ) : stage === 3 ? (
+    <div className={styles.checkinButton}>
+      <h3>You are offline</h3>
+      <p>
+        Your UID has been stored and will update when connection is restored
+      </p>
       <button
         onClick={() => {
           setStage(0);
