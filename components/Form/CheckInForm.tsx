@@ -33,23 +33,17 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
           uid: Number(data.uid),
           timestamp: Date(),
         };
-        localStorage.clear();
-        console.log(obj);
-        //localStorage.setItem('key', JSON.stringify(obj));
         localStorage.setItem(JSON.stringify(obj.uid), JSON.stringify(obj));
-
-        Object.keys(localStorage).forEach(function (key) {
-          console.log(localStorage.getItem(key));
-          var checkIn = JSON.parse(localStorage.getItem(key) || '{}');
-          console.log(checkIn);
-          console.log(checkIn.uid);
-          console.log(checkIn.timestamp);
-        });
 
         return;
       }
 
-      console.log('hello');
+      if (localStorage.length > 0) {
+        Object.keys(localStorage).forEach(function (key) {
+          var checkIn = JSON.parse(localStorage.getItem(key) || '{}');
+        });
+        localStorage.clear();
+      }
 
       const response = await fetch(`/api/checkin`, {
         method: 'POST',
