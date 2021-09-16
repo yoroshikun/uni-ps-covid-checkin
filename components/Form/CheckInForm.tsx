@@ -84,7 +84,7 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
           Check-In
         </button>
 
-        <Link href="/qrtest" passHref>
+        <Link href="/" passHref>
           <a>
             <button type="button" value="QR Scan">
               Scan QR
