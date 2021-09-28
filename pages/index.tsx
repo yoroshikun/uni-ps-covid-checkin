@@ -8,21 +8,51 @@ import styles from '../styles/Home.module.css';
 import Image from 'next/image';
 import humanImage from '../public/Human.png';
 
+import Lottie from 'react-lottie';
+import backgroundAnimation from '../lottie/background.json';
+import globeAnimation from '../lottie/globe.json';
+
+const bgAni = {
+  loop: true,
+  autoplay: true,
+  animationData: backgroundAnimation,
+  rendererSettings: {
+    preserveAspectRatio: 'xMidYMid slice',
+  },
+};
+
+const globeAni = {
+  loop: true,
+  autoplay: true,
+  animationData: globeAnimation,
+  rendererSettings: {
+    preserveAspectRatio: 'xMidYMid slice',
+  },
+};
+
 const Home: NextPage<{ locations: Location[] }> = ({ locations }) => {
   return (
     <div className={styles.mainContainer}>
       <div className={styles.leftWindow}>
         <p className={styles.line1}>Welcome to</p>
         <p className={styles.line2}>COVID CHECK-IN</p>
-        <p className={styles.line3}>Check-in your location</p>
+        <p className={styles.line3}>Check-in with UID</p>
 
         <div className={styles.human}>
-          <Image
+          {/* <Image
             src={humanImage}
             alt="Human Illustration"
             height={400}
             width={250}
-          />
+          /> */}
+        </div>
+
+        <div className={styles.globe}>
+          <Lottie options={globeAni} height={450} width={500} />
+        </div>
+
+        <div className={styles.bgAnimation}>
+          <Lottie options={bgAni} height={920} width={400} />
         </div>
       </div>
 

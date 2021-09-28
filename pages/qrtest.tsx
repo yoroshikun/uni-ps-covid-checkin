@@ -13,6 +13,63 @@ import handleOffline from '../lib/handleOffline';
 import checkInUser from '../lib/checkInUser';
 import prisma from '../lib/prisma';
 
+import Lottie from 'react-lottie';
+import confirmationAnimation from '../lottie/confirmation.json';
+import errorAnimation from '../lottie/error.json';
+import backgroundAnimation from '../lottie/background.json';
+import globeAnimation from '../lottie/globe.json';
+
+function getDate() {
+  var current = new Date();
+  var dateTime =
+    current.getDate() +
+    '/' +
+    (current.getMonth() + 1) +
+    '/' +
+    current.getFullYear() +
+    ', ' +
+    current.getHours() +
+    ':' +
+    current.getMinutes();
+  return dateTime;
+}
+
+const errorAni = {
+  loop: true,
+  autoplay: true,
+  animationData: errorAnimation,
+  rendererSettings: {
+    preserveAspectRatio: 'xMidYMid slice',
+  },
+};
+
+const confirmationAni = {
+  loop: false,
+  autoplay: true,
+  animationData: confirmationAnimation,
+  rendererSettings: {
+    preserveAspectRatio: 'xMidYMid slice',
+  },
+};
+
+const bgAni = {
+  loop: true,
+  autoplay: true,
+  animationData: backgroundAnimation,
+  rendererSettings: {
+    preserveAspectRatio: 'xMidYMid slice',
+  },
+};
+
+const globeAni = {
+  loop: true,
+  autoplay: true,
+  animationData: globeAnimation,
+  rendererSettings: {
+    preserveAspectRatio: 'xMidYMid slice',
+  },
+};
+
 const QrReader = dynamic(() => import('react-qr-reader'), { ssr: false });
 
 const QRTest: NextPage<{ locations: Location[] }> = ({ locations }) => {
@@ -43,9 +100,7 @@ const QRTest: NextPage<{ locations: Location[] }> = ({ locations }) => {
         setStage(1);
       }
     } catch (error: any) {
-      setError(
-        `Something went wrong when checking in please see staff assistance - ${error.message}`
-      );
+      setError(`${error.message}`);
       setStage(2);
     }
   };
@@ -68,12 +123,20 @@ const QRTest: NextPage<{ locations: Location[] }> = ({ locations }) => {
         <p className={styles.line3}>Scan QR</p>
 
         <div className={styles.human}>
-          <Image
+          {/* <Image
             src={humanImage}
             alt="Human Illustration"
             height={400}
             width={250}
-          />
+          /> */}
+        </div>
+
+        <div className={styles.globe}>
+          <Lottie options={globeAni} height={450} width={500} />
+        </div>
+
+        <div className={styles.bgAnimation}>
+          <Lottie options={bgAni} height={920} width={400} />
         </div>
       </div>
 
@@ -103,8 +166,14 @@ const QRTest: NextPage<{ locations: Location[] }> = ({ locations }) => {
           </div>
         ) : stage === 1 ? (
           <div className={styles.checkinButton}>
-            <h1>Check-In Successful!</h1>
-            <h3>{`Thank you for checking in at ${locations[0].name} today ${name}`}</h3>
+            <h1>Check-In Successful</h1>
+            <h3>{`Thank you for checking in, ${name}!`}</h3>
+
+            <Lottie options={confirmationAni} height={400} width={400} />
+
+            <h4>{`Location: ${locations[0].name}`}</h4>
+            <h2>Date: {getDate()}</h2>
+
             <button
               onClick={() => {
                 setStage(0);
@@ -115,7 +184,11 @@ const QRTest: NextPage<{ locations: Location[] }> = ({ locations }) => {
           </div>
         ) : stage === 2 ? (
           <div className={styles.checkinButton}>
-            <h3>{error}</h3>
+            <Lottie options={errorAni} height={400} width={400} />
+
+            <h4>Something went wrong when checking in...</h4>
+            <h3>Please see staff assistance - {error}</h3>
+
             <button
               onClick={() => {
                 setStage(0);

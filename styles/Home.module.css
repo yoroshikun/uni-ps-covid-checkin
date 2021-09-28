@@ -47,11 +47,25 @@
   color: white;
 }
 
-.human {
+.bgAnimation {
+  position: fixed;
+  display: flex;
+}
+
+/* .human {
   margin-top: 35rem;
   margin-right: 1.7rem;
   position: absolute;
   display: flex;
+} */
+
+.globe {
+  position: fixed;
+  display: flex;
+  margin-top: 38rem;
+  margin-right: -1.5rem;
+  opacity: 50%;
+  transform: rotate(20deg);
 }
 
 .line1 {
@@ -63,7 +77,7 @@
 }
 
 .line3 {
-  font-size: 15px;
+  font-size: 19px;
 }
 
 .background {
