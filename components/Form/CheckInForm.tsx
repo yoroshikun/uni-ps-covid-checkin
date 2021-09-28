@@ -9,6 +9,43 @@ import userIcon from '../../public/userIcon.png';
 import Link from 'next/link';
 import handleOffline from '../../lib/handleOffline';
 
+import Lottie from 'react-lottie';
+import confirmationAnimation from '../../lottie/confirmation.json';
+import errorAnimation from '../../lottie/error.json';
+
+function getDate() {
+  var current = new Date();
+  var dateTime =
+    current.getDate() +
+    '/' +
+    (current.getMonth() + 1) +
+    '/' +
+    current.getFullYear() +
+    ', ' +
+    current.getHours() +
+    ':' +
+    current.getMinutes();
+  return dateTime;
+}
+
+const confirmationAni = {
+  loop: false,
+  autoplay: true,
+  animationData: confirmationAnimation,
+  rendererSettings: {
+    preserveAspectRatio: 'xMidYMid slice',
+  },
+};
+
+const errorAni = {
+  loop: true,
+  autoplay: true,
+  animationData: errorAnimation,
+  rendererSettings: {
+    preserveAspectRatio: 'xMidYMid slice',
+  },
+};
+
 interface FormData {
   uid: string;
   location: string;
@@ -49,9 +86,7 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
       setName(checkIn.user.name);
       setStage(1);
     } catch (error: any) {
-      setError(
-        `Something went wrong when checking in please see staff assistance - ${error.message}`
-      );
+      setError(`${error.message}`);
       setStage(2);
     }
   };
@@ -100,9 +135,15 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
       )}
     </form>
   ) : stage === 1 ? (
-    <div className={styles.checkinButton}>
-      <h1>Check-In Successful!</h1>
-      <h3>{`Thank you for checking in at ${location} today ${name}`}</h3>
+    <div className={styles.confirmationContainer}>
+      <h1>Check-In Successful</h1>
+      <h3>{`Thank you for checking in, ${name}!`}</h3>
+
+      <Lottie options={confirmationAni} height={400} width={400} />
+
+      <h4>{`Location: ${locations[0].name}`}</h4>
+      <h2>Date: {getDate()}</h2>
+
       <button
         onClick={() => {
           setStage(0);
@@ -114,7 +155,11 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
     </div>
   ) : stage === 2 ? (
     <div className={styles.checkinButton}>
-      <h3>{error}</h3>
+      <Lottie options={errorAni} height={400} width={400} />
+
+      <h4>Something went wrong when checking in...</h4>
+      <h3>Please see staff assistance - {error}</h3>
+
       <button
         onClick={() => {
           setStage(0);
