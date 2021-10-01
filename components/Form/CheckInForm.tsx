@@ -6,12 +6,14 @@ import checkInUser from '../../lib/checkInUser';
 import styles from '../../styles/CheckInForm.module.css';
 import Image from 'next/image';
 import userIcon from '../../public/userIcon.png';
+import warningIcon from '../../public/warning.png';
 import Link from 'next/link';
 import handleOffline from '../../lib/handleOffline';
 
 import Lottie from 'react-lottie';
 import confirmationAnimation from '../../lottie/confirmation.json';
 import errorAnimation from '../../lottie/error.json';
+import loadingAnimation from '../../lottie/loading.json';
 
 function getDate() {
   var current = new Date();
@@ -46,6 +48,15 @@ const errorAni = {
   },
 };
 
+const loadingAni = {
+  loop: true,
+  autoplay: true,
+  animationData: loadingAnimation,
+  rendererSettings: {
+    preserveAspectRatio: 'xMidYMid slice',
+  },
+};
+
 interface FormData {
   uid: string;
   location: string;
@@ -72,6 +83,8 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
         { uid: data.uid, timestamp: Date.now().toString() },
         locations[0].name
       );
+
+      setStage(4);
 
       if (!isOnline) {
         setStage(3);
@@ -112,6 +125,13 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
         />
       </div>
 
+      {errors.uid && (
+        <div className={styles.errorMessage}>
+          <Image src={warningIcon} alt="User Icon" />
+          <span className="error-message">Please enter a valid UID</span>
+        </div>
+      )}
+
       <br></br>
 
       <div className={styles.buttons}>
@@ -128,11 +148,14 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
         </Link>
       </div>
 
-      {errors.uid && (
-        <div className={styles.errorMessage}>
-          <span className="error-message">Please enter a valid UID</span>
-        </div>
-      )}
+      <div className={styles.register}>
+        <h3>{"Don't have an account?"}</h3>
+        <h4>
+          <Link href="/register" passHref>
+            Register here
+          </Link>
+        </h4>
+      </div>
     </form>
   ) : stage === 1 ? (
     <div className={styles.confirmationContainer}>
@@ -183,6 +206,10 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
       >
         Check-In Again
       </button>
+    </div>
+  ) : stage === 4 ? (
+    <div className={styles.loading}>
+      <Lottie options={loadingAni} height={400} width={400} />
     </div>
   ) : null;
 };

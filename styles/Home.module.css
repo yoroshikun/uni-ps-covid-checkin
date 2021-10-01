@@ -52,6 +52,45 @@
   display: flex;
 }
 
+.translateIcon {
+  position: fixed;
+  margin-bottom: 52rem;
+  margin-right: 13.5rem;
+  z-index: 9;
+}
+
+.translateIcon:hover {
+  cursor: pointer;
+  opacity: 40%;
+  transition-duration: 0.4s;
+}
+
+.dropdown {
+  position: fixed;
+  width: 200px;
+  margin-bottom: 34.5rem;
+  margin-right: 4.5rem;
+  z-index: 2;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
+  background-color: azure;
+}
+
+.dropdown ul {
+  list-style: none;
+  padding: 0rem 0rem 0rem 1rem;
+  width: 90px;
+}
+
+.dropdown li {
+  font-size: 22px;
+}
+
+.dropdown li:hover {
+  color: #6678a3;
+  cursor: pointer;
+}
+
 /* .human {
   margin-top: 35rem;
   margin-right: 1.7rem;
