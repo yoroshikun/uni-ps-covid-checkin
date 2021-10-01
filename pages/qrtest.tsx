@@ -12,12 +12,14 @@ import Link from 'next/link';
 import handleOffline from '../lib/handleOffline';
 import checkInUser from '../lib/checkInUser';
 import prisma from '../lib/prisma';
+import translateImage from '../public/translate.png';
 
 import Lottie from 'react-lottie';
 import confirmationAnimation from '../lottie/confirmation.json';
 import errorAnimation from '../lottie/error.json';
 import backgroundAnimation from '../lottie/background.json';
 import globeAnimation from '../lottie/globe.json';
+import loadingAnimation from '../lottie/loading.json';
 
 function getDate() {
   var current = new Date();
@@ -70,12 +72,22 @@ const globeAni = {
   },
 };
 
+const loadingAni = {
+  loop: true,
+  autoplay: true,
+  animationData: loadingAnimation,
+  rendererSettings: {
+    preserveAspectRatio: 'xMidYMid slice',
+  },
+};
+
 const QrReader = dynamic(() => import('react-qr-reader'), { ssr: false });
 
 const QRTest: NextPage<{ locations: Location[] }> = ({ locations }) => {
   const [stage, setStage] = useState(0);
   const [error, setError] = useState('');
   const [name, setName] = useState('');
+  const [showDrop, setShowDrop] = useState(false);
 
   const handleScan = async (data: string | null) => {
     try {
@@ -85,6 +97,8 @@ const QRTest: NextPage<{ locations: Location[] }> = ({ locations }) => {
           { uid: decoded, timestamp: Date.now().toString() },
           locations[0].name
         );
+
+        setStage(4);
 
         if (!isOnline) {
           setStage(3);
@@ -118,6 +132,26 @@ const QRTest: NextPage<{ locations: Location[] }> = ({ locations }) => {
       <Head title="QRReader" description="Covid Checkin QRReader" />
 
       <div className={styles.leftContainer}>
+        <div className={styles.translateIcon}>
+          <Image
+            src={translateImage}
+            alt="translate icon"
+            onClick={() => setShowDrop(!showDrop)}
+          ></Image>
+        </div>
+
+        {showDrop && (
+          <div className={styles.dropdown} id="language">
+            <ul>
+              <li>English</li>
+              <li>French</li>
+              <li>Greek</li>
+              <li>日本語</li>
+              <li>官话</li>
+            </ul>
+          </div>
+        )}
+
         <p className={styles.line1}>Welcome to</p>
         <p className={styles.line2}>COVID CHECK-IN</p>
         <p className={styles.line3}>Scan QR</p>
@@ -147,6 +181,7 @@ const QRTest: NextPage<{ locations: Location[] }> = ({ locations }) => {
           <div className={styles.QRContainer}>
             <h2>Scan QR Code</h2>
             <QrReader
+              className={styles.QRReader}
               delay={300}
               onError={handleError}
               onScan={handleScan}
@@ -158,14 +193,23 @@ const QRTest: NextPage<{ locations: Location[] }> = ({ locations }) => {
               Campus
             </p>
 
-            <Link href="/">
+            <Link href="/" passHref>
               <button type="button" value="Login UID Button">
                 Login with UID
               </button>
             </Link>
+
+            <div className={styles.register}>
+              <h3>{"Don't have an account?"}</h3>
+              <h4>
+                <Link href="/register" passHref>
+                  Register here
+                </Link>
+              </h4>
+            </div>
           </div>
         ) : stage === 1 ? (
-          <div className={styles.checkinButton}>
+          <div className={styles.confirmationContainer}>
             <h1>Check-In Successful</h1>
             <h3>{`Thank you for checking in, ${name}!`}</h3>
 
@@ -211,6 +255,10 @@ const QRTest: NextPage<{ locations: Location[] }> = ({ locations }) => {
             >
               Check-In Again
             </button>
+          </div>
+        ) : stage === 4 ? (
+          <div className={styles.loading}>
+            <Lottie options={loadingAni} height={400} width={400} />
           </div>
         ) : null}
       </div>

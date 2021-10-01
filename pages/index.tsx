@@ -7,6 +7,8 @@ import Head from '../components/Layout/Head';
 import styles from '../styles/Home.module.css';
 import Image from 'next/image';
 import humanImage from '../public/Human.png';
+import translateImage from '../public/translate.png';
+import { useState } from 'react';
 
 import Lottie from 'react-lottie';
 import backgroundAnimation from '../lottie/background.json';
@@ -31,9 +33,31 @@ const globeAni = {
 };
 
 const Home: NextPage<{ locations: Location[] }> = ({ locations }) => {
+  const [showDrop, setShowDrop] = useState(false);
+
   return (
     <div className={styles.mainContainer}>
       <div className={styles.leftWindow}>
+        <div className={styles.translateIcon}>
+          <Image
+            src={translateImage}
+            alt="translate icon"
+            onClick={() => setShowDrop(!showDrop)}
+          ></Image>
+        </div>
+
+        {showDrop && (
+          <div className={styles.dropdown} id="language">
+            <ul>
+              <li>English</li>
+              <li>French</li>
+              <li>Greek</li>
+              <li>日本語</li>
+              <li>官话</li>
+            </ul>
+          </div>
+        )}
+
         <p className={styles.line1}>Welcome to</p>
         <p className={styles.line2}>COVID CHECK-IN</p>
         <p className={styles.line3}>Check-in with UID</p>
