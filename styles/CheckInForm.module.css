@@ -6,7 +6,6 @@
 }
 
 .userIcon label {
-  font-family: Arial, Helvetica, sans-serif;
   margin-left: 0.7rem;
   margin-top: 0.5rem;
   color: #949494;
@@ -18,7 +17,6 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-family: Arial, Helvetica, sans-serif;
   padding-top: 0.5rem;
   color: #7c7c7c;
 }
@@ -40,7 +38,6 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  font-family: Arial, Helvetica, sans-serif;
   color: #949494;
 }
 
@@ -98,7 +95,6 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  font-family: Arial, Helvetica, sans-serif;
   color: #949494;
 }
 
@@ -162,7 +158,6 @@
 
 .input ::placeholder {
   font-size: 1em;
-  font-family: Arial, Helvetica, sans-serif;
   opacity: 60%;
 }
 
@@ -176,12 +171,6 @@
   border-radius: 0.5rem;
   color: #7c7c7c;
   font-size: 18px;
-  font-family: Arial, Helvetica, sans-serif;
-  /* color: white;
-  background-color:#7c8eb6;
-  padding: 0.7rem;
-  margin-left: 7.5rem;
-  width: 60%; */
 }
 
 .errorMessage span {
@@ -242,7 +231,6 @@
 }
 
 .locationWrapper h1 {
-  font-family: Arial, Helvetica, sans-serif;
   color: #949494;
   text-align: center;
 }

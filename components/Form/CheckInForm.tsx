@@ -1,34 +1,26 @@
 import { Location } from '@prisma/client';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import Image from 'next/image';
+import Link from 'next/link';
+import Lottie from 'react-lottie';
 
 import checkInUser from '../../lib/checkInUser';
-import styles from '../../styles/CheckInForm.module.css';
-import Image from 'next/image';
-import userIcon from '../../public/userIcon.png';
-import warningIcon from '../../public/warning.png';
-import Link from 'next/link';
 import handleOffline from '../../lib/handleOffline';
+import userIcon from '../../public/userIcon.png';
+import styles from '../../styles/CheckInForm.module.css';
+import warningIcon from '../../public/warning.png';
 
-import Lottie from 'react-lottie';
 import confirmationAnimation from '../../lottie/confirmation.json';
 import errorAnimation from '../../lottie/error.json';
 import loadingAnimation from '../../lottie/loading.json';
 
-function getDate() {
-  var current = new Date();
-  var dateTime =
-    current.getDate() +
-    '/' +
-    (current.getMonth() + 1) +
-    '/' +
-    current.getFullYear() +
-    ', ' +
-    current.getHours() +
-    ':' +
-    current.getMinutes();
-  return dateTime;
-}
+const getDate = () => {
+  const current = new Date();
+  return `${current.getDate()}/${
+    current.getMonth() + 1
+  }/${current.getFullYear()}, ${current.getHours()}:${current.getMinutes()}`;
+};
 
 const confirmationAni = {
   loop: false,
@@ -99,7 +91,7 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
       setName(checkIn.user.name);
       setStage(1);
     } catch (error: any) {
-      setError(`${error.message}`);
+      setError(error.message);
       setStage(2);
     }
   };

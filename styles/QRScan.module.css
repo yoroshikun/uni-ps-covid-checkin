@@ -3,15 +3,11 @@
   flex-direction: row;
 }
 
-.QRReader {
-}
-
 .register {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-family: Arial, Helvetica, sans-serif;
   color: #7c7c7c;
 }
 
@@ -35,7 +31,6 @@
   height: calc(100% - 2rem);
   background-color: white;
   overflow: hidden;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .QRContainer [type='button'] {
@@ -85,7 +80,6 @@
 
 .leftContainer p {
   margin-top: -1.5rem;
-  font-family: Arial, Helvetica, sans-serif;
   color: white;
 }
 
@@ -101,13 +95,6 @@
   font-size: 19px;
   font-weight: 300;
 }
-
-/* .human {
-  margin-top: 35rem;
-  margin-right: 1.7rem;
-  position: absolute;
-  display: flex;
-} */
 
 .globe {
   position: fixed;
@@ -187,7 +174,6 @@
   height: calc(100% - 2rem);
   background-color: white;
   overflow: hidden;
-  font-family: Arial, Helvetica, sans-serif;
   color: #949494;
 }
 
@@ -236,7 +222,6 @@
   align-items: center;
   position: relative;
   height: calc(100% - 2rem);
-  font-family: Arial, Helvetica, sans-serif;
   color: #949494;
 }
 

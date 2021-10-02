@@ -91,13 +91,6 @@
   cursor: pointer;
 }
 
-/* .human {
-  margin-top: 35rem;
-  margin-right: 1.7rem;
-  position: absolute;
-  display: flex;
-} */
-
 .globe {
   position: fixed;
   display: flex;

@@ -1,40 +1,30 @@
 import type { GetServerSideProps, NextPage } from 'next';
-import dynamic from 'next/dynamic';
-
-import styles from '../styles/QRScan.module.css';
-import Head from '../components/Layout/Head';
-import { useState } from 'react';
 import type { Location } from '@prisma/client';
-
+import { useState } from 'react';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import humanImage from '../public/Human.png';
 import Link from 'next/link';
-import handleOffline from '../lib/handleOffline';
+import Lottie from 'react-lottie';
+
 import checkInUser from '../lib/checkInUser';
+import handleOffline from '../lib/handleOffline';
+import Head from '../components/Layout/Head';
 import prisma from '../lib/prisma';
+import styles from '../styles/QRScan.module.css';
 import translateImage from '../public/translate.png';
 
-import Lottie from 'react-lottie';
+import backgroundAnimation from '../lottie/background.json';
 import confirmationAnimation from '../lottie/confirmation.json';
 import errorAnimation from '../lottie/error.json';
-import backgroundAnimation from '../lottie/background.json';
 import globeAnimation from '../lottie/globe.json';
 import loadingAnimation from '../lottie/loading.json';
 
-function getDate() {
-  var current = new Date();
-  var dateTime =
-    current.getDate() +
-    '/' +
-    (current.getMonth() + 1) +
-    '/' +
-    current.getFullYear() +
-    ', ' +
-    current.getHours() +
-    ':' +
-    current.getMinutes();
-  return dateTime;
-}
+const getDate = () => {
+  const current = new Date();
+  return `${current.getDate()}/${
+    current.getMonth() + 1
+  }/${current.getFullYear()}, ${current.getHours()}:${current.getMinutes()}`;
+};
 
 const errorAni = {
   loop: true,
@@ -87,7 +77,7 @@ const QRTest: NextPage<{ locations: Location[] }> = ({ locations }) => {
   const [stage, setStage] = useState(0);
   const [error, setError] = useState('');
   const [name, setName] = useState('');
-  const [showDrop, setShowDrop] = useState(false);
+  const [showDrop, setShowDropdown] = useState(false);
 
   const handleScan = async (data: string | null) => {
     try {
@@ -114,7 +104,7 @@ const QRTest: NextPage<{ locations: Location[] }> = ({ locations }) => {
         setStage(1);
       }
     } catch (error: any) {
-      setError(`${error.message}`);
+      setError(error.message);
       setStage(2);
     }
   };
@@ -136,7 +126,7 @@ const QRTest: NextPage<{ locations: Location[] }> = ({ locations }) => {
           <Image
             src={translateImage}
             alt="translate icon"
-            onClick={() => setShowDrop(!showDrop)}
+            onClick={() => setShowDropdown((prev) => !prev)}
           ></Image>
         </div>
 
@@ -155,15 +145,6 @@ const QRTest: NextPage<{ locations: Location[] }> = ({ locations }) => {
         <p className={styles.line1}>Welcome to</p>
         <p className={styles.line2}>COVID CHECK-IN</p>
         <p className={styles.line3}>Scan QR</p>
-
-        <div className={styles.human}>
-          {/* <Image
-            src={humanImage}
-            alt="Human Illustration"
-            height={400}
-            width={250}
-          /> */}
-        </div>
 
         <div className={styles.globe}>
           <Lottie options={globeAni} height={450} width={500} />
