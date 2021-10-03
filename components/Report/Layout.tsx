@@ -1,4 +1,3 @@
-import { CheckIn, User, Location } from '@prisma/client';
 import { useCallback, useState } from 'react';
 import ReportTable from './ReportTable';
 import SearchBar from './SearchBar';
@@ -18,50 +17,87 @@ const Layout = ({ initialCheckIns, refresh, refreshing }: ReportProps) => {
 
   // Handle search of check-ins
   const search = useCallback(
-    (searchValue: string) => {
+    (searchValue: string, dates: Date[]) => {
+      if (searchValue === '') {
+        const newCheckIns = initialCheckIns.filter(
+          (checkIn) =>
+            new Date(checkIn.timestamp).getTime() <= dates[1].getTime() &&
+            new Date(checkIn.timestamp).getTime() >= dates[0].getTime()
+        );
+
+        setCheckIns(newCheckIns);
+        return;
+      }
+
       switch (searchType) {
         case 'uid': {
-          const newCheckIns = initialCheckIns.filter(
-            (checkIn) => checkIn.user.uid === Number(searchValue)
-          );
+          const newCheckIns = initialCheckIns
+            .filter((checkIn) => checkIn.user.uid === Number(searchValue))
+            .filter(
+              (checkIn) =>
+                checkIn.timestamp.getTime() <= dates[1].getTime() &&
+                checkIn.timestamp.getTime() >= dates[0].getTime()
+            );
 
           setCheckIns(newCheckIns);
 
           break;
         }
         case 'username': {
-          const newCheckIns = initialCheckIns.filter((checkIn) =>
-            checkIn.user.name.toLowerCase().includes(searchValue.toLowerCase())
-          );
+          const newCheckIns = initialCheckIns
+            .filter((checkIn) =>
+              checkIn.user.name
+                .toLowerCase()
+                .includes(searchValue.toLowerCase())
+            )
+            .filter(
+              (checkIn) =>
+                checkIn.timestamp.getTime() <= dates[1].getTime() &&
+                checkIn.timestamp.getTime() >= dates[0].getTime()
+            );
 
           setCheckIns(newCheckIns);
 
           break;
         }
         case 'userId': {
-          const newCheckIns = initialCheckIns.filter(
-            (checkIn) => checkIn.userId === searchValue
-          );
+          const newCheckIns = initialCheckIns
+            .filter((checkIn) => checkIn.userId === searchValue)
+            .filter(
+              (checkIn) =>
+                checkIn.timestamp.getTime() <= dates[1].getTime() &&
+                checkIn.timestamp.getTime() >= dates[0].getTime()
+            );
 
           setCheckIns(newCheckIns);
 
           break;
         }
         case 'location': {
-          const newCheckIns = initialCheckIns.filter((checkIn) =>
-            checkIn.location.name
-              .toLowerCase()
-              .includes(searchValue.toLowerCase())
-          );
+          const newCheckIns = initialCheckIns
+            .filter((checkIn) =>
+              checkIn.location.name
+                .toLowerCase()
+                .includes(searchValue.toLowerCase())
+            )
+            .filter(
+              (checkIn) =>
+                checkIn.timestamp.getTime() <= dates[1].getTime() &&
+                checkIn.timestamp.getTime() >= dates[0].getTime()
+            );
 
           setCheckIns(newCheckIns);
 
           break;
         }
         case 'locationId': {
-          const newCheckIns = initialCheckIns.filter(
-            (checkIn) => checkIn.locationId === searchValue
-          );
+          const newCheckIns = initialCheckIns
+            .filter((checkIn) => checkIn.locationId === searchValue)
+            .filter(
+              (checkIn) =>
+                checkIn.timestamp.getTime() <= dates[1].getTime() &&
+                checkIn.timestamp.getTime() >= dates[0].getTime()
+            );
 
           setCheckIns(newCheckIns);
 
