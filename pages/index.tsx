@@ -173,8 +173,7 @@ const Home: NextPage<{ locations: Location[] }> = ({ locations }) => {
             />
             <br></br>
             <p>
-              <b>Location</b>: University of South Australia - Mawson Lakes -
-              Campus
+              <b>Location</b>: {locations[0].name}
             </p>
 
             <Link href="/uid" passHref>
