@@ -124,8 +124,6 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
         </div>
       )}
 
-      <br></br>
-
       <div className={styles.buttons}>
         <button type="submit" value="Submit">
           Check-In

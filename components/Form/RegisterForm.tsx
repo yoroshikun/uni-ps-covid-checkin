@@ -6,6 +6,8 @@ import QRCode from 'react-qr-code';
 
 import styles from '../../styles/RegisterForm.module.css';
 
+import { Users, Envelope, Phone } from 'phosphor-react';
+
 interface FormData {
   name: string;
   email?: string;
@@ -37,6 +39,9 @@ const RegisterForm = () => {
   return stage === 0 ? (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.input}>
+        <div className={styles.phosphor}>
+          <Users />
+        </div>
         <label>Name:</label>
         <input
           placeholder="Please enter your name"
@@ -47,6 +52,9 @@ const RegisterForm = () => {
             pattern: /^[A-Za-z ]+$/,
           })}
         />
+        <div className={styles.phosphor}>
+          <Envelope />
+        </div>
         <label>Email:</label>
         <input
           placeholder="Please enter your email if you have one"
@@ -55,6 +63,10 @@ const RegisterForm = () => {
             pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
           })}
         />
+
+        <div className={styles.phosphor}>
+          <Phone />
+        </div>
         <label>Phone:</label>
         <input
           placeholder="Please enter your phone number if you have one"
@@ -69,6 +81,15 @@ const RegisterForm = () => {
         <button type="submit" value="Register">
           Register
         </button>
+      </div>
+
+      <div className={styles.checkIn}>
+        <label>
+          Already have an account?
+          <div className={styles.link}>
+            <a href="http://localhost:3000"> Check-in here</a>
+          </div>
+        </label>
       </div>
 
       <div className={styles.errorMessage}>
