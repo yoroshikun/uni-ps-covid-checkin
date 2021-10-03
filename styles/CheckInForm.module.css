@@ -223,7 +223,7 @@
   color: white;
 }
 
-.locationWrapper {
+.locationWrapper [type='select'] {
   padding: 1rem;
   font-size: 1rem;
   width: 40rem;
@@ -239,4 +239,23 @@
   justify-content: center;
   align-items: center;
   position: absolute;
+}
+
+.link {
+  display: inline-block;
+  color: #6678a3;
+}
+
+.register {
+  padding: 15px;
+  text-align: center;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  white-space: pre;
+  color: #949494;
+  font-size: 1.2em;
+  letter-spacing: 0px;
+  line-height: 1.2;
+  font-family: 'Helvetica-Light', sans-serif;
 }

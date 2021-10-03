@@ -39,14 +39,14 @@
   font-family: 'Helvetica-Light', sans-serif;
 }
 
-.registerButton {
+.installButton {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.registerButton [type='submit'] {
+.installButton [type='submit'] {
   background-color: #6678a3;
   border: none;
   color: white;
@@ -62,7 +62,7 @@
   width: 18em;
 }
 
-.registerButton [type='submit']:hover {
+.installButton [type='submit']:hover {
   background-color: #0077ff;
   color: white;
   transform: scale(1.1);
@@ -76,22 +76,4 @@
   position: relative;
   top: 3px;
   margin-right: 10px;
-}
-
-.link {
-  display: inline-block;
-  color: #6678a3;
-}
-.checkIn {
-  padding: 15px;
-  text-align: center;
-  width: auto;
-  height: auto;
-  overflow: visible;
-  white-space: pre;
-  color: #949494;
-  font-size: 1.2em;
-  letter-spacing: 0px;
-  line-height: 1.2;
-  font-family: 'Helvetica-Light', sans-serif;
 }
