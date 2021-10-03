@@ -1,26 +1,50 @@
 import { Dispatch, SetStateAction, useState } from 'react';
+import Image from 'next/image';
+// @ts-ignore
+import DateTimeRangePicker from '@wojtekmaj/react-datetimerange-picker/dist/DateTimeRangePicker';
+import '@wojtekmaj/react-datetimerange-picker/dist/DateTimeRangePicker.css';
+import 'react-calendar/dist/Calendar.css';
+import 'react-clock/dist/Clock.css';
 import { searchTypes } from './types';
 import styles from '../../styles/Report/ReportTable.module.css';
-import Image from 'next/image';
 import searchIcon from '../../public/search.png';
 
 interface SearchBarProps {
-  search: (searchValue: string) => void;
+  search: (searchValue: string, dates: Date[]) => void;
   searchType: string;
   setSearchType: Dispatch<SetStateAction<searchTypes>>;
 }
 
+let lastWeek = new Date();
+lastWeek.setDate(lastWeek.getDate() - 7);
+
 const SearchBar = ({ search, searchType, setSearchType }: SearchBarProps) => {
   const [searchValue, setSearchValue] = useState('');
+  const [dateRange, setDateRange] = useState<Date[]>([lastWeek, new Date()]);
 
-  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    search(searchValue);
-  };
+  const handleSearch = () => search(searchValue, dateRange);
 
   return (
     <div>
-      <form onSubmit={handleSearch}>
+      <div className={styles.dateBar}>
+        <DateTimeRangePicker
+          onChange={(dates: Date[]) => {
+            // Check if dates are valid
+            if (dates[0] && dates[1]) {
+              setDateRange(dates);
+              handleSearch();
+            }
+          }}
+          value={dateRange}
+          className={styles.datePicker}
+        />
+      </div>
+      <form
+        onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
+          e.preventDefault();
+          handleSearch();
+        }}
+      >
         <div className={styles.searchContainer}>
           <input
             type="text"
