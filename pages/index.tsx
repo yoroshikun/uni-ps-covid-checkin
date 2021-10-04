@@ -11,6 +11,7 @@ import handleOffline from '../lib/handleOffline';
 import Head from '../components/Layout/Head';
 import prisma from '../lib/prisma';
 import styles from '../styles/QRScan.module.css';
+import settingsImage from '../public/settings.png';
 import translateImage from '../public/translate.png';
 
 import backgroundAnimation from '../lottie/background.json';
@@ -131,6 +132,11 @@ const Home: NextPage<{ locations: Location[] }> = ({ locations }) => {
             alt="translate icon"
             onClick={() => setShowDropdown((prev) => !prev)}
           ></Image>
+        </div>
+        <div className={styles.settingsIcon}>
+          <Link href="/install" passHref>
+            <Image src={settingsImage} alt="settings icon"></Image>
+          </Link>
         </div>
 
         {showDrop && (

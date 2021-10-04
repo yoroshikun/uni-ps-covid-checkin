@@ -52,6 +52,20 @@
   display: flex;
 }
 
+.settingsIcon {
+  position: fixed;
+  top: 4.6rem;
+  left: 1.5rem;
+  width: 2.5rem;
+  z-index: 9;
+}
+
+.settingsIcon:hover {
+  cursor: pointer;
+  opacity: 40%;
+  transition-duration: 0.4s;
+}
+
 .translateIcon {
   position: fixed;
   top: 1.5rem;
@@ -71,7 +85,7 @@
   width: 200px;
   top: 5rem;
   left: 1.5rem;
-  z-index: 2;
+  z-index: 10;
   border: 1px solid rgba(0, 0, 0, 0.04);
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
   background-color: azure;

@@ -2,12 +2,14 @@ import type { GetServerSideProps, NextPage } from 'next';
 import { Location } from '@prisma/client';
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import Lottie from 'react-lottie';
 
 import CheckInForm from '../components/Form/CheckInForm';
 import Head from '../components/Layout/Head';
 import prisma from '../lib/prisma';
 import styles from '../styles/Home.module.css';
+import settingsImage from '../public/settings.png';
 import translateImage from '../public/translate.png';
 
 import backgroundAnimation from '../lottie/background.json';
@@ -43,6 +45,12 @@ const UID: NextPage<{ locations: Location[] }> = ({ locations }) => {
             alt="translate icon"
             onClick={() => setShowDropdown((prev) => !prev)}
           ></Image>
+        </div>
+
+        <div className={styles.settingsIcon}>
+          <Link href="/install" passHref>
+            <Image src={settingsImage} alt="settings icon"></Image>
+          </Link>
         </div>
 
         {showDrop && (
