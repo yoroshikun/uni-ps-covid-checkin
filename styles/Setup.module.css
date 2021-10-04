@@ -39,14 +39,14 @@
   font-family: 'Helvetica-Light', sans-serif;
 }
 
-.installButton {
+.setupButton {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.installButton [type='submit'] {
+.setupButton [type='submit'] {
   background-color: #6678a3;
   border: none;
   color: white;
@@ -62,7 +62,7 @@
   width: 18em;
 }
 
-.installButton [type='submit']:hover {
+.setupButton [type='submit']:hover {
   background-color: #0077ff;
   color: white;
   transform: scale(1.1);
