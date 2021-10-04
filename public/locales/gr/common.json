@@ -1,0 +1,85 @@
+{
+  "translation": {
+    "homepage": {
+      "LeftMain1": "Welcome to",
+      "LeftMain2": "COVID CHECK-IN",
+      "LeftMain3": "Check-in with UID",
+      "UniqueIdentification": "Unique Identification",
+      "EnterUID": "Please enter UID",
+      "CheckIn": "Check-In",
+      "ScanQR": "Scan QR",
+      "RegisterButton": "Don't have an account?",
+      "RegisterButtonAction": "Register here",
+      "EmptyError": "Please fill in this field",
+      "InvalidError": "Please enter a valid UID",
+      "Location": "Location: "
+    },
+    "ScanQRPage": {
+      "LeftMain1": "Welcome to",
+      "LeftMain2": "COVID CHECK-IN",
+      "LeftMain3": "Scan QR",
+      "Header": "Scan QR Code",
+      "Location": "Location: ",
+      "ReturnButton": "Login with UID"
+    },
+    "RegisterPage": {
+      "LeftMain1": "Welcome to",
+      "LeftMain2": "COVID CHECK-IN",
+      "LeftMain3": "Register now",
+      "Header": "Registration",
+      "Name": "Name",
+      "NameLabel": "Please enter your name",
+      "NameError": "Please enter a name",
+      "Email": "Email",
+      "EmailLabel": "Please enter your email",
+      "EmailError": "Please enter a valid email",
+      "Phone": "Phone",
+      "PhoneLabel": "Please enter your phone number",
+      "PhoneError": "Please enter a valid phone number",
+      "RegisterButton": "Register",
+      "ReturnButton": "Already have an account? ",
+      "ReturnButtonAction": "Check-In here",
+      "Success": "You have successfully registered!",
+      "UID": "Your UID is: ",
+      "QRCode": "Your QR Code is: ",
+      "GoBack": "Go back",
+      "Error": "An error has occurred!"
+    },
+    "SetupPage": {
+      "Header": "Setup location",
+      "Location": "Location",
+      "LocationLabel": "Please enter your location",
+      "LocationError": "Please enter a location",
+      "SetupButton": "Setup",
+      "LeftMain1": "Welcome to",
+      "LeftMain2": "COVID CHECK-IN",
+      "LeftMain3": "Setup!",
+      "Setup": "Setup",
+      "GoBack": "Go back",
+      "SetupSuccess": "You have successfully setup!",
+      "SetupSuccessInfo": "Your location is: "
+    },
+    "CheckInSuccess": {
+      "Success": "Check-In Successful",
+      "Thanks": "Thanks for checking in!",
+      "Location": "Location: ",
+      "RetryButton": "Check-in Again"
+    },
+    "CheckInError": {
+      "ErrorNotice": "Something went wrong when checking in...",
+      "AskStaff": "Please see staff for assistance - ",
+      "RetryButton": "Check-in Again"
+    },
+    "RegistrationConfirm": {
+      "Thanks": "Thank you for registering!",
+      "UserID": "User ID: ",
+      "UseThis": "Use this UID to Check-In!",
+      "ReturnButton": "Return to Homepage"
+    },
+    "CheckInOffline": {
+      "Heading": "You are offline",
+      "Info": "Your UID has been stored and will update when connection is restored",
+      "RetryButton": "Check-in Again"
+    }
+  }
+}

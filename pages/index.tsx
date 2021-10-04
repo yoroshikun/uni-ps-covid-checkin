@@ -2,21 +2,19 @@ import type { GetServerSideProps, NextPage } from 'next';
 import type { Location } from '@prisma/client';
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
-import Image from 'next/image';
 import Link from 'next/link';
 import Lottie from 'react-lottie';
+import { useTranslation } from 'react-i18next';
 
 import checkInUser from '../lib/checkInUser';
 import handleOffline from '../lib/handleOffline';
 import Head from '../components/Layout/Head';
+import LeftContainer from '../components/LeftContainer';
 import prisma from '../lib/prisma';
 import styles from '../styles/QRScan.module.css';
-import translateImage from '../public/translate.png';
 
-import backgroundAnimation from '../lottie/background.json';
 import confirmationAnimation from '../lottie/confirmation.json';
 import errorAnimation from '../lottie/error.json';
-import globeAnimation from '../lottie/globe.json';
 import loadingAnimation from '../lottie/loading.json';
 
 const getDate = () => {
@@ -44,24 +42,6 @@ const confirmationAni = {
   },
 };
 
-const bgAni = {
-  loop: true,
-  autoplay: true,
-  animationData: backgroundAnimation,
-  rendererSettings: {
-    preserveAspectRatio: 'xMidYMid slice',
-  },
-};
-
-const globeAni = {
-  loop: true,
-  autoplay: true,
-  animationData: globeAnimation,
-  rendererSettings: {
-    preserveAspectRatio: 'xMidYMid slice',
-  },
-};
-
 const loadingAni = {
   loop: true,
   autoplay: true,
@@ -77,7 +57,8 @@ const Home: NextPage<{ locations: Location[] }> = ({ locations }) => {
   const [stage, setStage] = useState(0);
   const [error, setError] = useState('');
   const [name, setName] = useState('');
-  const [showDrop, setShowDropdown] = useState(false);
+
+  const [t, _] = useTranslation();
 
   const handleScan = async (data: string | null) => {
     try {
@@ -124,46 +105,14 @@ const Home: NextPage<{ locations: Location[] }> = ({ locations }) => {
         description="Check in with ease with this Terminal"
       />
 
-      <div className={styles.leftContainer}>
-        <div className={styles.translateIcon}>
-          <Image
-            src={translateImage}
-            alt="translate icon"
-            onClick={() => setShowDropdown((prev) => !prev)}
-          ></Image>
-        </div>
-
-        {showDrop && (
-          <div className={styles.dropdown} id="language">
-            <ul>
-              <li>English</li>
-              <li>French</li>
-              <li>Greek</li>
-              <li>日本語</li>
-              <li>官话</li>
-            </ul>
-          </div>
-        )}
-
-        <p className={styles.line1}>Welcome to</p>
-        <p className={styles.line2}>COVID CHECK-IN</p>
-        <p className={styles.line3}>Scan QR</p>
-
-        <div className={styles.globe}>
-          <Lottie options={globeAni} height={450} width={500} />
-        </div>
-
-        <div className={styles.bgAnimation}>
-          <Lottie options={bgAni} height={920} width={400} />
-        </div>
-      </div>
+      <LeftContainer tkey="ScanQRPage" />
 
       <div className={styles.rightContainer}>
         <div className={styles.topWindow}></div>
 
         {stage === 0 ? (
           <div className={styles.QRContainer}>
-            <h2>Scan QR Code</h2>
+            <h2>{t('ScanQRPage.Header')}</h2>
             <QrReader
               className={styles.QRReader}
               delay={300}
@@ -173,70 +122,71 @@ const Home: NextPage<{ locations: Location[] }> = ({ locations }) => {
             />
             <br></br>
             <p>
-              <b>Location</b>: {locations[0].name}
+              <b>{t('ScanQRPage.Location')}</b>
+              {locations[0].name}
             </p>
 
             <Link href="/uid" passHref>
               <button type="button" value="Login UID Button">
-                Login with UID
+                {t('ScanQRPage.ReturnButton')}
               </button>
             </Link>
 
             <div className={styles.register}>
-              <h3>{"Don't have an account?"}</h3>
+              <h3>{t('homepage.RegisterButton')}</h3>
               <h4>
                 <Link href="/register" passHref>
-                  Register here
+                  {t('homepage.RegisterButtonAction')}
                 </Link>
               </h4>
             </div>
           </div>
         ) : stage === 1 ? (
           <div className={styles.confirmationContainer}>
-            <h1>Check-In Successful</h1>
-            <h3>{`Thank you for checking in, ${name}!`}</h3>
+            <h1>{t('CheckInSuccess.Success')}</h1>
+            <h3>{`${t('CheckInSuccess.Thanks')} ${name}!`}</h3>
 
             <Lottie options={confirmationAni} height={400} width={400} />
 
-            <h4>{`Location: ${locations[0].name}`}</h4>
-            <h2>Date: {getDate()}</h2>
+            <h4>{`${t('CheckInSuccess.Location')}${locations[0].name}`}</h4>
+            <h2>{getDate()}</h2>
 
             <button
               onClick={() => {
                 setStage(0);
               }}
             >
-              Check-In Again
+              {t('CheckInSuccess.ReturnButton')}
             </button>
           </div>
         ) : stage === 2 ? (
           <div className={styles.checkinButton}>
             <Lottie options={errorAni} height={400} width={400} />
 
-            <h4>Something went wrong when checking in...</h4>
-            <h3>Please see staff assistance - {error}</h3>
+            <h4>{t('CheckInError.ErrorNotice')}</h4>
+            <h3>
+              {t('CheckInError.AskStaff')}
+              {error}
+            </h3>
 
             <button
               onClick={() => {
                 setStage(0);
               }}
             >
-              Check-In Again
+              {t('CheckInError.RetryButton')}
             </button>
           </div>
         ) : stage === 3 ? (
           <div className={styles.checkinButton}>
-            <h3>You are offline</h3>
-            <p>
-              Your UID has been stored and will update when connection is
-              restored
-            </p>
+            <h3>{t('CheckInOffline.Heading')}</h3>
+            <p>{t('CheckInOffline.Info')}</p>
             <button
               onClick={() => {
                 setStage(0);
               }}
             >
-              Check-In Again
+              {t('CheckInOffline.RetryButton')}
             </button>
           </div>
         ) : stage === 4 ? (

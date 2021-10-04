@@ -1,12 +1,12 @@
-import type { User } from '@prisma/client';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import registerUser from '../../lib/registerUser';
 import QRCode from 'react-qr-code';
-
-import styles from '../../styles/RegisterForm.module.css';
-
+import Link from 'next/link';
 import { Users, Envelope, Phone } from 'phosphor-react';
+import { useTranslation } from 'react-i18next';
+
+import registerUser from '../../lib/registerUser';
+import styles from '../../styles/RegisterForm.module.css';
 
 interface FormData {
   name: string;
@@ -15,6 +15,7 @@ interface FormData {
 }
 
 const RegisterForm = () => {
+  const [t] = useTranslation();
   const {
     register,
     handleSubmit,
@@ -42,9 +43,9 @@ const RegisterForm = () => {
         <div className={styles.phosphor}>
           <Users />
         </div>
-        <label>Name:</label>
+        <label>{t('RegisterPage.Name')}</label>
         <input
-          placeholder="Please enter your name"
+          placeholder={t('RegisterPage.NameLabel')}
           type="text"
           {...register('name', {
             required: true,
@@ -55,9 +56,9 @@ const RegisterForm = () => {
         <div className={styles.phosphor}>
           <Envelope />
         </div>
-        <label>Email:</label>
+        <label>{t('RegisterPage.Email')}</label>
         <input
-          placeholder="Please enter your email if you have one"
+          placeholder={t('RegisterPage.EmailLabel')}
           type="text"
           {...register('email', {
             pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
@@ -67,9 +68,9 @@ const RegisterForm = () => {
         <div className={styles.phosphor}>
           <Phone />
         </div>
-        <label>Phone:</label>
+        <label>{t('RegisterPage.Phone')}</label>
         <input
-          placeholder="Please enter your phone number if you have one"
+          placeholder={t('RegisterPage.PhoneLabel')}
           type="text"
           {...register('phone', {
             pattern: /^(?:\+?61|0)[2-478](?:[ -]?[0-9]){8}$/,
@@ -79,38 +80,38 @@ const RegisterForm = () => {
 
       <div className={styles.registerButton}>
         <button type="submit" value="Register">
-          Register
+          {t('RegisterPage.RegisterButton')}
         </button>
       </div>
 
       <div className={styles.checkIn}>
         <label>
-          Already have an account?
+          {t('RegisterPage.ReturnButton')}
           <div className={styles.link}>
-            <a href="http://localhost:3000"> Check-in here</a>
+            <Link href="/" passHref>
+              <a>{t('RegisterPage.ReturnButtonAction')}</a>
+            </Link>
           </div>
         </label>
       </div>
 
       <div className={styles.errorMessage}>
         {errors.name && (
-          <span className="error-message">Please enter a name</span>
+          <span className="error-message">{t('RegisterPage.NameError')}</span>
         )}
         {errors.email && (
-          <span className="error-message">Please enter a valid Email</span>
+          <span className="error-message">{t('RegisterPage.EmailError')}</span>
         )}
         {errors.phone && (
-          <span className="error-message">
-            Please enter a valid Phone Number
-          </span>
+          <span className="error-message">{t('RegisterPage.PhoneError')}</span>
         )}
       </div>
     </form>
   ) : stage === 1 ? (
     <div>
-      <h2>You have successfully registered!</h2>
-      <p>{`Your UID is: ${uid}`}</p>
-      <p>Your QR Code is:</p>
+      <h2>{t('RegisterPage.Success')}</h2>
+      <p>{`${t('RegisterOage.UID')}${uid}`}</p>
+      <p>{t('RegisterPage.QRCode')}</p>
       <QRCode value={`${Buffer.from(uid || '').toString('base64')}`} />
       <button
         onClick={() => {
@@ -119,12 +120,12 @@ const RegisterForm = () => {
           setError('');
         }}
       >
-        Go back
+        {t('RegisterPage.GoBack')}
       </button>
     </div>
   ) : stage === 2 ? (
     <div>
-      <h2>An error has occured!</h2>
+      <h2>{t('RegisterPage.Error')}</h2>
       <p>{error}</p>
       <button
         onClick={() => {
@@ -133,7 +134,7 @@ const RegisterForm = () => {
           setError('');
         }}
       >
-        Go back
+        {t('RegisterPage.GoBack')}
       </button>
     </div>
   ) : null;

@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import Image from 'next/image';
 import Link from 'next/link';
 import Lottie from 'react-lottie';
+import { useTranslation } from 'react-i18next';
 
 import checkInUser from '../../lib/checkInUser';
 import handleOffline from '../../lib/handleOffline';
@@ -55,15 +56,13 @@ interface FormData {
 }
 
 const CheckInForm = ({ locations }: { locations: Location[] }) => {
+  const [t] = useTranslation();
   const {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
     setValue,
   } = useForm();
-
-  const location: string = watch('location', '');
 
   const [stage, setStage] = useState(0);
   const [error, setError] = useState('');
@@ -99,13 +98,16 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
   return stage === 0 ? (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.locationWrapper}>
-        <h1>Location: {locations[0].name}</h1>
+        <h1>
+          {t('homepage.Location')}
+          {locations[0].name}
+        </h1>
       </div>
 
       <div className={styles.input}>
         <div className={styles.userIcon}>
           <Image src={userIcon} alt="User Icon" />
-          <label>Unique Identifcation:</label>
+          <label>{t('homepage.UniqueIdentification')}</label>
         </div>
         <input
           inputMode="numeric"
@@ -120,42 +122,42 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
       {errors.uid && (
         <div className={styles.errorMessage}>
           <Image src={warningIcon} alt="User Icon" />
-          <span className="error-message">Please enter a valid UID</span>
+          <span className="error-message">{t('homepage.InvalidError')}</span>
         </div>
       )}
 
       <div className={styles.buttons}>
         <button type="submit" value="Submit">
-          Check-In
+          {t('homepage.CheckIn')}
         </button>
 
         <Link href="/" passHref>
           <a>
             <button type="button" value="QR Scan">
-              Scan QR
+              {t('homepage.ScanQR')}
             </button>
           </a>
         </Link>
       </div>
 
       <div className={styles.register}>
-        <h3>{"Don't have an account?"}</h3>
+        <h3>{t('homepage.RegisterButton')}</h3>
         <h4>
           <Link href="/register" passHref>
-            Register here
+            {t('homepage.RegisterButtonAction')}
           </Link>
         </h4>
       </div>
     </form>
   ) : stage === 1 ? (
     <div className={styles.confirmationContainer}>
-      <h1>Check-In Successful</h1>
-      <h3>{`Thank you for checking in, ${name}!`}</h3>
+      <h1>{t('CheckInSuccess.Success')}</h1>
+      <h3>{`${t('CheckInSuccess.Thanks')} ${name}!`}</h3>
 
       <Lottie options={confirmationAni} height={400} width={400} />
 
-      <h4>{`Location: ${locations[0].name}`}</h4>
-      <h2>Date: {getDate()}</h2>
+      <h4>{`${t('CheckInSuccess.Location')}${locations[0].name}`}</h4>
+      <h2>{getDate()}</h2>
 
       <button
         onClick={() => {
@@ -163,15 +165,18 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
           setValue('uid', '');
         }}
       >
-        Check-In Again
+        {t('CheckInSuccess.ReturnButton')}
       </button>
     </div>
   ) : stage === 2 ? (
     <div className={styles.checkinButton}>
       <Lottie options={errorAni} height={400} width={400} />
 
-      <h4>Something went wrong when checking in...</h4>
-      <h3>Please see staff assistance - {error}</h3>
+      <h4>{t('CheckInError.ErrorNotice')}</h4>
+      <h3>
+        {t('CheckInError.AskStaff')}
+        {error}
+      </h3>
 
       <button
         onClick={() => {
@@ -179,22 +184,20 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
           setValue('uid', '');
         }}
       >
-        Check-In Again
+        {t('CheckInError.RetryButton')}
       </button>
     </div>
   ) : stage === 3 ? (
     <div className={styles.checkinButton}>
-      <h3>You are offline</h3>
-      <p>
-        Your UID has been stored and will update when connection is restored
-      </p>
+      <h3>{t('CheckInOffline.Heading')}</h3>
+      <p>{t('CheckInOffline.Info')}</p>
       <button
         onClick={() => {
           setStage(0);
           setValue('uid', '');
         }}
       >
-        Check-In Again
+        {t('CheckInOffline.RetryButton')}
       </button>
     </div>
   ) : stage === 4 ? (

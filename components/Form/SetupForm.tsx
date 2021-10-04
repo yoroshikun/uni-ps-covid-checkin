@@ -1,16 +1,17 @@
 import type { Location } from '@prisma/client';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-
-import styles from '../../styles/Installation.module.css';
-
 import { MapPin } from 'phosphor-react';
+import { useTranslation } from 'react-i18next';
+
+import styles from '../../styles/Setup.module.css';
 
 interface FormData {
   location: string;
 }
 
-const InstallForm = () => {
+const SetupForm = () => {
+  const [t] = useTranslation();
   const {
     register,
     handleSubmit,
@@ -52,32 +53,28 @@ const InstallForm = () => {
         <div className={styles.phosphor}>
           <MapPin />
         </div>
-        <label>Location:</label>
+        <label>{t('SetupPage.Location')}</label>
         <input
-          placeholder="Please enter your location"
+          placeholder={t('SetupPage.LocationLabel')}
           type="text"
-          {...register('location', {
-            pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-          })}
+          {...register('location', { required: true })}
         />
       </div>
 
-      <div className={styles.installButton}>
-        <button type="submit" value="Install">
-          Install
-        </button>
+      <div className={styles.setupButton}>
+        <button type="submit">{t('SetupPage.Setup')}</button>
       </div>
 
       <div className={styles.errorMessage}>
         {errors.location && (
-          <span className="error-message">Please enter a location</span>
+          <span className="error-message">{t('SetupPage.LocationError')}</span>
         )}
       </div>
     </form>
   ) : stage === 1 ? (
     <div>
-      <h2>You have successfully installed!</h2>
-      <p>{`Your Location is: ${location}`}</p>
+      <h2>{t('SetupPage.SetupSuccess')}</h2>
+      <p>{`${t('SetupPage.SetupSuccessInfo')}${location}`}</p>
       <button
         onClick={() => {
           setStage(0);
@@ -85,12 +82,12 @@ const InstallForm = () => {
           setError('');
         }}
       >
-        Go back
+        {t('SetupPage.GoBack')}
       </button>
     </div>
   ) : stage === 2 ? (
     <div>
-      <h2>An error has occured!</h2>
+      <h2>{t('CheckInError.ErrorNotice')}</h2>
       <p>{error}</p>
       <button
         onClick={() => {
@@ -99,10 +96,10 @@ const InstallForm = () => {
           setError('');
         }}
       >
-        Go back
+        {t('SetupPage.GoBack')}
       </button>
     </div>
   ) : null;
 };
 
-export default InstallForm;
+export default SetupForm;
