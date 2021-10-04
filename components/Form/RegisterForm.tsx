@@ -3,11 +3,39 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import registerUser from '../../lib/registerUser';
 import QRCode from 'react-qr-code';
-
+import Link from 'next/link';
 import styles from '../../styles/RegisterForm.module.css';
-
+import Lottie from 'react-lottie';
 import { Users, Envelope, Phone } from 'phosphor-react';
+import confirmationAnimation from '../../lottie/confirmation.json';
+import errorAnimation from '../../lottie/error.json';
+import loadingAnimation from '../../lottie/loading.json';
+const confirmationAni = {
+  loop: false,
+  autoplay: true,
+  animationData: confirmationAnimation,
+  rendererSettings: {
+    preserveAspectRatio: 'xMidYMid slice',
+  },
+};
 
+const errorAni = {
+  loop: true,
+  autoplay: true,
+  animationData: errorAnimation,
+  rendererSettings: {
+    preserveAspectRatio: 'xMidYMid slice',
+  },
+};
+
+const loadingAni = {
+  loop: true,
+  autoplay: true,
+  animationData: loadingAnimation,
+  rendererSettings: {
+    preserveAspectRatio: 'xMidYMid slice',
+  },
+};
 interface FormData {
   name: string;
   email?: string;
@@ -27,6 +55,7 @@ const RegisterForm = () => {
 
   const onSubmit = async ({ name, email, phone }: FormData) => {
     try {
+      setStage(3);
       const user = await registerUser({ name, email, phone });
 
       setUID(String(user.uid).padStart(7, '0'));
@@ -38,6 +67,9 @@ const RegisterForm = () => {
 
   return stage === 0 ? (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <div className={styles.header}>
+        <h1>Setup Page</h1>
+      </div>
       <div className={styles.input}>
         <div className={styles.phosphor}>
           <Users />
@@ -77,7 +109,7 @@ const RegisterForm = () => {
         />
       </div>
 
-      <div className={styles.registerButton}>
+      <div className={styles.button}>
         <button type="submit" value="Register">
           Register
         </button>
@@ -87,7 +119,9 @@ const RegisterForm = () => {
         <label>
           Already have an account?
           <div className={styles.link}>
-            <a href="http://localhost:3000"> Check-in here</a>
+            <Link href="/" passHref>
+              <a> Check-in here</a>
+            </Link>
           </div>
         </label>
       </div>
@@ -107,11 +141,13 @@ const RegisterForm = () => {
       </div>
     </form>
   ) : stage === 1 ? (
-    <div>
-      <h2>You have successfully registered!</h2>
-      <p>{`Your UID is: ${uid}`}</p>
+    <div className={styles.confirmationContainer}>
+      <h1>You have successfully registered!</h1>
+
+      <h3>{`Your UID is: ${uid}`}</h3>
       <p>Your QR Code is:</p>
       <QRCode value={`${Buffer.from(uid || '').toString('base64')}`} />
+
       <button
         onClick={() => {
           setStage(0);
@@ -123,8 +159,9 @@ const RegisterForm = () => {
       </button>
     </div>
   ) : stage === 2 ? (
-    <div>
-      <h2>An error has occured!</h2>
+    <div className={styles.confirmationContainer}>
+      <h1>An error has occured!</h1>
+      <Lottie options={errorAni} height={400} width={400} />
       <p>{error}</p>
       <button
         onClick={() => {
@@ -135,6 +172,10 @@ const RegisterForm = () => {
       >
         Go back
       </button>
+    </div>
+  ) : stage === 3 ? (
+    <div className={styles.loading}>
+      <Lottie options={loadingAni} height={400} width={400} />
     </div>
   ) : null;
 };

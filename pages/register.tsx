@@ -82,7 +82,6 @@ const Register: NextPage = () => {
             description="Register with ease with this Terminal"
           />
 
-          <h1>Register for new account</h1>
           <RegisterForm />
         </div>
       </div>
