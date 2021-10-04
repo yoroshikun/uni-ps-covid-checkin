@@ -1,6 +1,6 @@
 import type { GetServerSideProps, NextPage } from 'next';
 import type { Location } from '@prisma/client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -19,6 +19,38 @@ import errorAnimation from '../lottie/error.json';
 import globeAnimation from '../lottie/globe.json';
 import loadingAnimation from '../lottie/loading.json';
 
+export const useDate = () => {
+  const locale = 'en';
+  const [today, setDate] = useState(new Date()); // Save the current date to be able to trigger an update
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      // Creates an interval which will update the current data every minute
+      // This will trigger a rerender every component that uses the useDate hook.
+      setDate(new Date());
+    }, 60 * 1000);
+    return () => {
+      clearInterval(timer); // Return a funtion to clear the timer so that it will stop being called on unmount
+    };
+  }, []);
+
+  const day = today.toLocaleDateString(locale, { weekday: 'long' });
+  const date = `${day}, ${today.getDate()} ${today.toLocaleDateString(locale, {
+    month: 'long',
+    year: 'numeric',
+  })}\n\n`;
+
+  const time = today.toLocaleTimeString(locale, {
+    hour: 'numeric',
+    hour12: true,
+    minute: 'numeric',
+  });
+
+  return {
+    date,
+    time,
+  };
+};
 const getDate = () => {
   const current = new Date();
   return `${current.getDate()}/${
@@ -78,6 +110,7 @@ const Home: NextPage<{ locations: Location[] }> = ({ locations }) => {
   const [error, setError] = useState('');
   const [name, setName] = useState('');
   const [showDrop, setShowDropdown] = useState(false);
+  const { date, time } = useDate();
 
   const handleScan = async (data: string | null) => {
     try {
@@ -159,7 +192,10 @@ const Home: NextPage<{ locations: Location[] }> = ({ locations }) => {
       </div>
 
       <div className={styles.rightContainer}>
-        <div className={styles.topWindow}></div>
+        <div className={styles.topWindow}>
+          <h2>{date}</h2>
+          <h3>{time}</h3>
+        </div>
 
         {stage === 0 ? (
           <div className={styles.QRContainer}>
