@@ -52,6 +52,7 @@
   width: 150px;
   box-sizing: border-box;
   margin-left: 1rem;
+  margin-right: 1rem;
   border: 1px solid #aaa;
   box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
   border-radius: 0.5em;
@@ -94,19 +95,49 @@
 }
 
 .anotherContainer {
-  margin-left: 30.7rem;
-  margin-bottom: -33px;
+  display: flex;
+  flex-direction: row;
+  margin-left: 0rem;
+  margin-bottom: 10px;
 }
 
-.buttonContainer [type='button'] {
+.searchAndCalendar {
+  display: flex;
+  flex-direction: row;
+}
+
+.refresh {
   width: 7rem;
   height: 2rem;
   margin-left: 1rem;
   border: none;
   border-radius: 0.3rem;
-  background-color: #6678a3;
+  background-color: #6678a3 !important;
   color: white;
   transition-duration: 0.3s;
+}
+
+.reset {
+  width: 7rem;
+  height: 2rem;
+  margin-left: 1rem;
+  border: none;
+  border-radius: 0.3rem;
+  background-color: #6678a3 !important;
+  color: white;
+  transition-duration: 0.3s;
+}
+
+.refresh:hover {
+  background-color: #9e9e9e !important;
+}
+
+.reset:hover {
+  background-color: #9e9e9e !important;
+}
+
+.buttonContainer [type='button'] {
+  height: 2rem;
 }
 
 .buttonContainer [type='button']:hover {
@@ -130,4 +161,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.dateBar {
+  padding-top: 4px;
+  padding-bottom: 1rem;
 }

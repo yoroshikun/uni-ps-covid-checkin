@@ -13,3 +13,16 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.react-datetimerange-picker .react-datetimerange-picker__wrapper {
+  border: none;
+  height: 2rem;
+  background-color: #e7e7e7;
+  border-radius: 5px;
+  margin-top: -3px;
+  transition-duration: 0.4s;
+}
+
+.react-datetimerange-picker .react-datetimerange-picker__wrapper:hover {
+  background-color: #dddddd;
+}

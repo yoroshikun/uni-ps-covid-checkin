@@ -118,11 +118,18 @@ const Layout = ({ initialCheckIns, refresh, refreshing }: ReportProps) => {
     <div className={styles.buttonContainer}>
       <h1>Check-In Report</h1>
       <div className={styles.anotherContainer}>
-        <button type="button" onClick={refresh}>
+        <SearchBar
+          search={search}
+          searchType={searchType}
+          setSearchType={setSearchType}
+        />
+
+        <button type="button" className={styles.refresh} onClick={refresh}>
           Click to refresh
         </button>
         <button
           type="button"
+          className={styles.reset}
           onClick={() => {
             setCheckIns(initialCheckIns);
           }}
@@ -130,11 +137,6 @@ const Layout = ({ initialCheckIns, refresh, refreshing }: ReportProps) => {
           Reset
         </button>
       </div>
-      <SearchBar
-        search={search}
-        searchType={searchType}
-        setSearchType={setSearchType}
-      />
       {refreshing ? (
         <p>Refreshing...</p>
       ) : checkIns.length === 0 ? (

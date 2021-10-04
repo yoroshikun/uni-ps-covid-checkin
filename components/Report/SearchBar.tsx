@@ -25,20 +25,7 @@ const SearchBar = ({ search, searchType, setSearchType }: SearchBarProps) => {
   const handleSearch = () => search(searchValue, dateRange);
 
   return (
-    <div>
-      <div className={styles.dateBar}>
-        <DateTimeRangePicker
-          onChange={(dates: Date[]) => {
-            // Check if dates are valid
-            if (dates[0] && dates[1]) {
-              setDateRange(dates);
-              handleSearch();
-            }
-          }}
-          value={dateRange}
-          className={styles.datePicker}
-        />
-      </div>
+    <div className={styles.searchAndCalendar}>
       <form
         onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
           e.preventDefault();
@@ -74,6 +61,20 @@ const SearchBar = ({ search, searchType, setSearchType }: SearchBarProps) => {
           </select>
         </div>
       </form>
+
+      <div className={styles.dateBar}>
+        <DateTimeRangePicker
+          onChange={(dates: Date[]) => {
+            // Check if dates are valid
+            if (dates[0] && dates[1]) {
+              setDateRange(dates);
+              handleSearch();
+            }
+          }}
+          value={dateRange}
+          className={styles.datePicker}
+        />
+      </div>
     </div>
   );
 };
