@@ -35,8 +35,8 @@ const Layout = ({ initialCheckIns, refresh, refreshing }: ReportProps) => {
             .filter((checkIn) => checkIn.user.uid === Number(searchValue))
             .filter(
               (checkIn) =>
-                checkIn.timestamp.getTime() <= dates[1].getTime() &&
-                checkIn.timestamp.getTime() >= dates[0].getTime()
+                new Date(checkIn.timestamp).getTime() <= dates[1].getTime() &&
+                new Date(checkIn.timestamp).getTime() >= dates[0].getTime()
             );
 
           setCheckIns(newCheckIns);
@@ -52,8 +52,8 @@ const Layout = ({ initialCheckIns, refresh, refreshing }: ReportProps) => {
             )
             .filter(
               (checkIn) =>
-                checkIn.timestamp.getTime() <= dates[1].getTime() &&
-                checkIn.timestamp.getTime() >= dates[0].getTime()
+                new Date(checkIn.timestamp).getTime() <= dates[1].getTime() &&
+                new Date(checkIn.timestamp).getTime() >= dates[0].getTime()
             );
 
           setCheckIns(newCheckIns);
@@ -65,8 +65,8 @@ const Layout = ({ initialCheckIns, refresh, refreshing }: ReportProps) => {
             .filter((checkIn) => checkIn.userId === searchValue)
             .filter(
               (checkIn) =>
-                checkIn.timestamp.getTime() <= dates[1].getTime() &&
-                checkIn.timestamp.getTime() >= dates[0].getTime()
+                new Date(checkIn.timestamp).getTime() <= dates[1].getTime() &&
+                new Date(checkIn.timestamp).getTime() >= dates[0].getTime()
             );
 
           setCheckIns(newCheckIns);
@@ -82,8 +82,8 @@ const Layout = ({ initialCheckIns, refresh, refreshing }: ReportProps) => {
             )
             .filter(
               (checkIn) =>
-                checkIn.timestamp.getTime() <= dates[1].getTime() &&
-                checkIn.timestamp.getTime() >= dates[0].getTime()
+                new Date(checkIn.timestamp).getTime() <= dates[1].getTime() &&
+                new Date(checkIn.timestamp).getTime() >= dates[0].getTime()
             );
 
           setCheckIns(newCheckIns);
@@ -95,8 +95,8 @@ const Layout = ({ initialCheckIns, refresh, refreshing }: ReportProps) => {
             .filter((checkIn) => checkIn.locationId === searchValue)
             .filter(
               (checkIn) =>
-                checkIn.timestamp.getTime() <= dates[1].getTime() &&
-                checkIn.timestamp.getTime() >= dates[0].getTime()
+                new Date(checkIn.timestamp).getTime() <= dates[1].getTime() &&
+                new Date(checkIn.timestamp).getTime() >= dates[0].getTime()
             );
 
           setCheckIns(newCheckIns);
