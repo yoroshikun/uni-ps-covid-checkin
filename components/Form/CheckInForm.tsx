@@ -165,7 +165,7 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
           setValue('uid', '');
         }}
       >
-        {t('CheckInSuccess.ReturnButton')}
+        {t('CheckInSuccess.RetryButton')}
       </button>
     </div>
   ) : stage === 2 ? (

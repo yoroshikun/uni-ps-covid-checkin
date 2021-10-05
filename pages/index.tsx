@@ -157,7 +157,7 @@ const Home: NextPage<{ locations: Location[] }> = ({ locations }) => {
                 setStage(0);
               }}
             >
-              {t('CheckInSuccess.ReturnButton')}
+              {t('CheckInSuccess.RetryButton')}
             </button>
           </div>
         ) : stage === 2 ? (

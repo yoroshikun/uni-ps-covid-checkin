@@ -57,7 +57,8 @@
       "Setup": "設定する",
       "GoBack": "戻る",
       "SetupSuccess": "場所設定が完了しました。",
-      "SetupSuccessInfo": "現在地は: "
+      "SetupSuccessInfo": "現在地は: ",
+      "Error": "エラーが発生しました。"
     },
     "CheckInSuccess": {
       "Success": "チェックイン完了",

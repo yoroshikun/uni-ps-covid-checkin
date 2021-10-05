@@ -57,7 +57,8 @@
       "Setup": "设置",
       "GoBack": "返回",
       "SetupSuccess": "您已设置成功了！",
-      "SetupSuccessInfo": "您的地点是： "
+      "SetupSuccessInfo": "您的地点是： ",
+      "Error": "发生了错误"
     },
     "CheckInSuccess": {
       "Success": "成功登记了",

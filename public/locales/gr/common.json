@@ -57,7 +57,8 @@
       "Setup": "Εγκατάστασης",
       "GoBack": "Πήγαινε πίσω",
       "SetupSuccess": "Έχετε ρυθμίσει με επιτυχία!",
-      "SetupSuccessInfo": "Η τοποθεσία σας είναι: "
+      "SetupSuccessInfo": "Η τοποθεσία σας είναι: ",
+      "Error": "Παρουσιάστηκε σφάλμα!"
     },
     "CheckInSuccess": {
       "Success": "Το check-in ολοκληρώθηκε με επιτυχία",

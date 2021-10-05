@@ -59,7 +59,7 @@ const SetupForm = () => {
     setStage(3);
     try {
       // Use the API to create new location
-      const response = await fetch(`/api/registerlocation`, {
+      const response = await fetch(`/api/registerLocation`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -125,7 +125,7 @@ const SetupForm = () => {
     </div>
   ) : stage === 2 ? (
     <div className={styles.confirmationContainer}>
-      <h2>{t('CheckInError.ErrorNotice')}</h2>
+      <h2>{t('SetupPage.Error')}</h2>
       <Lottie options={errorAni} height={400} width={400} />
       <p>{error}</p>
       <div className={styles.button}>

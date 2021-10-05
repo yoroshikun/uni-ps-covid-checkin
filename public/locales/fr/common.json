@@ -57,7 +57,8 @@
       "Setup": "Définir",
       "GoBack": "Retour",
       "SetupSuccess": "Lieu défini avec succès !",
-      "SetupSuccessInfo": "Vous vous trouvez à : "
+      "SetupSuccessInfo": "Vous vous trouvez à : ",
+      "Error": "Une erreur s'est produite !"
     },
     "CheckInSuccess": {
       "Success": "Enregistré avec succès",
