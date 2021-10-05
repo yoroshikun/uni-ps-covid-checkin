@@ -1,85 +1,85 @@
 {
   "translation": {
     "homepage": {
-      "LeftMain1": "Welcome to",
-      "LeftMain2": "COVID CHECK-IN",
-      "LeftMain3": "Check-in with UID",
-      "UniqueIdentification": "Unique Identification",
-      "EnterUID": "Please enter UID",
-      "CheckIn": "Check-In",
-      "ScanQR": "Scan QR",
-      "RegisterButton": "Don't have an account?",
-      "RegisterButtonAction": "Register here",
-      "EmptyError": "Please fill in this field",
-      "InvalidError": "Please enter a valid UID",
-      "Location": "Location: "
+      "LeftMain1": "ようこそ",
+      "LeftMain2": "COVIDチェックインへ",
+      "LeftMain3": "UIDでチェックインする",
+      "UniqueIdentification": "固有ID",
+      "EnterUID": "UIDを入力して下さい",
+      "CheckIn": "チェックイン",
+      "ScanQR": "QRスキャン",
+      "RegisterButton": "アカウントをお持ちでない方は",
+      "RegisterButtonAction": "こちらからご登録下さい",
+      "EmptyError": "この欄に記入して下さい。",
+      "InvalidError": "有効なUIDを入力して下さい",
+      "Location": "位置: "
     },
     "ScanQRPage": {
-      "LeftMain1": "Welcome to",
-      "LeftMain2": "COVID CHECK-IN",
-      "LeftMain3": "Scan QR",
-      "Header": "Scan QR Code",
-      "Location": "Location: ",
-      "ReturnButton": "Login with UID"
+      "LeftMain1": "ようこそ",
+      "LeftMain2": "COVIDチェックインへ",
+      "LeftMain3": "QRスキャン",
+      "Header": "QRコードをスキャンする",
+      "Location": "位置: ",
+      "ReturnButton": "UID(固有ID)でログインする"
     },
     "RegisterPage": {
-      "LeftMain1": "Welcome to",
-      "LeftMain2": "COVID CHECK-IN",
-      "LeftMain3": "Register now",
-      "Header": "Registration",
-      "Name": "Name",
-      "NameLabel": "Please enter your name",
-      "NameError": "Please enter a name",
-      "Email": "Email",
-      "EmailLabel": "Please enter your email",
-      "EmailError": "Please enter a valid email",
-      "Phone": "Phone",
-      "PhoneLabel": "Please enter your phone number",
-      "PhoneError": "Please enter a valid phone number",
-      "RegisterButton": "Register",
-      "ReturnButton": "Already have an account? ",
-      "ReturnButtonAction": "Check-In here",
-      "Success": "You have successfully registered!",
-      "UID": "Your UID is: ",
-      "QRCode": "Your QR Code is: ",
-      "GoBack": "Go back",
-      "Error": "An error has occurred!"
+      "LeftMain1": "ようこそ",
+      "LeftMain2": "COVIDチェックインへ",
+      "LeftMain3": "今すぐ登録する",
+      "Header": "新規登録",
+      "Name": "名前",
+      "NameLabel": "名前を入力して下さい",
+      "NameError": "名前を入力して下さい。",
+      "Email": "メール",
+      "EmailLabel": "メールアドレスを入力して下さい",
+      "EmailError": "有効なメールアドレスを入力して下さい。",
+      "Phone": "電話番号",
+      "PhoneLabel": "電話番号を入力して下さい",
+      "PhoneError": "有効な電話番号を入力して下さい。",
+      "RegisterButton": "登録する",
+      "ReturnButton": "アカウントをお持ちの方は ",
+      "ReturnButtonAction": "こちらからチェックインして下さい",
+      "Success": "登録は完了しました。",
+      "UID": "こちらはあなたのUIDです: ",
+      "QRCode": "こちらはあなたのQRコードです: ",
+      "GoBack": "戻る",
+      "Error": "エラーが発生しました。"
     },
     "SetupPage": {
-      "Header": "Setup location",
-      "Location": "Location",
-      "LocationLabel": "Please enter your location",
-      "LocationError": "Please enter a location",
-      "SetupButton": "Setup",
-      "LeftMain1": "Welcome to",
-      "LeftMain2": "COVID CHECK-IN",
-      "LeftMain3": "Setup!",
-      "Setup": "Setup",
-      "GoBack": "Go back",
-      "SetupSuccess": "You have successfully setup!",
-      "SetupSuccessInfo": "Your location is: "
+      "Header": "場所を設定する",
+      "Location": "位置",
+      "LocationLabel": "現在地を入力して下さい。",
+      "LocationError": "場所を入力して下さい。",
+      "SetupButton": "設定する",
+      "LeftMain1": "ようこそ",
+      "LeftMain2": "COVIDチェックインへ",
+      "LeftMain3": "設定する!",
+      "Setup": "設定する",
+      "GoBack": "戻る",
+      "SetupSuccess": "場所設定が完了しました。",
+      "SetupSuccessInfo": "現在地は: "
     },
     "CheckInSuccess": {
-      "Success": "Check-In Successful",
-      "Thanks": "Thanks for checking in!",
-      "Location": "Location: ",
-      "RetryButton": "Check-in Again"
+      "Success": "チェックイン完了",
+      "Thanks": "チェックインいただきありがとうございます！",
+      "Location": "位置:  ",
+      "RetryButton": "再チェックインする"
     },
     "CheckInError": {
-      "ErrorNotice": "Something went wrong when checking in...",
-      "AskStaff": "Please see staff for assistance - ",
-      "RetryButton": "Check-in Again"
+      "ErrorNotice": "チェックインの際にエラーが発生しました。",
+      "AskStaff": "詳細については、スタッフにお問い合わせ下さい。 ",
+      "RetryButton": "再チェックインする"
     },
     "RegistrationConfirm": {
-      "Thanks": "Thank you for registering!",
-      "UserID": "User ID: ",
-      "UseThis": "Use this UID to Check-In!",
-      "ReturnButton": "Return to Homepage"
+      "Thanks": "ご登録いただきありがとうご ざいます。",
+      "UserID": "固有ID: ",
+      "UseThis": "チェックインする時にこの固有IDをご使用下さい。",
+      "ReturnButton": "ホームに戻る"
     },
     "CheckInOffline": {
-      "Heading": "You are offline",
-      "Info": "Your UID has been stored and will update when connection is restored",
-      "RetryButton": "Check-in Again"
+      "Heading": "オフラインです。",
+      "Info": "あなたのUIDは保存されていて、ネットワークが回復したときにアップデートされます。",
+      "RetryButton": "再チェックインする"
     }
   }
 }

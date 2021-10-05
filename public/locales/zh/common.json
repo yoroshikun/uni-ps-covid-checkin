@@ -1,85 +1,85 @@
 {
   "translation": {
     "homepage": {
-      "LeftMain1": "Welcome to",
-      "LeftMain2": "COVID CHECK-IN",
-      "LeftMain3": "Check-in with UID",
-      "UniqueIdentification": "Unique Identification",
-      "EnterUID": "Please enter UID",
-      "CheckIn": "Check-In",
-      "ScanQR": "Scan QR",
-      "RegisterButton": "Don't have an account?",
-      "RegisterButtonAction": "Register here",
-      "EmptyError": "Please fill in this field",
-      "InvalidError": "Please enter a valid UID",
-      "Location": "Location: "
+      "LeftMain1": "欢迎来到",
+      "LeftMain2": "COVID登记",
+      "LeftMain3": "使用UID 登记",
+      "UniqueIdentification": "唯一标识",
+      "EnterUID": "请输入 UID",
+      "CheckIn": "登记",
+      "ScanQR": "扫描二维码",
+      "RegisterButton": "没有账户？",
+      "RegisterButtonAction": "在这里注册",
+      "EmptyError": "请在此处填写",
+      "InvalidError": "请输入有效的 UID",
+      "Location": "地点 "
     },
     "ScanQRPage": {
-      "LeftMain1": "Welcome to",
-      "LeftMain2": "COVID CHECK-IN",
-      "LeftMain3": "Scan QR",
-      "Header": "Scan QR Code",
-      "Location": "Location: ",
-      "ReturnButton": "Login with UID"
+      "LeftMain1": "欢迎来到",
+      "LeftMain2": "COVID登记",
+      "LeftMain3": "扫描二维码",
+      "Header": "扫描二维码",
+      "Location": "地点 ",
+      "ReturnButton": "使用 UID 登录"
     },
     "RegisterPage": {
-      "LeftMain1": "Welcome to",
-      "LeftMain2": "COVID CHECK-IN",
-      "LeftMain3": "Register now",
-      "Header": "Registration",
-      "Name": "Name",
-      "NameLabel": "Please enter your name",
-      "NameError": "Please enter a name",
-      "Email": "Email",
-      "EmailLabel": "Please enter your email",
-      "EmailError": "Please enter a valid email",
-      "Phone": "Phone",
-      "PhoneLabel": "Please enter your phone number",
-      "PhoneError": "Please enter a valid phone number",
-      "RegisterButton": "Register",
-      "ReturnButton": "Already have an account? ",
-      "ReturnButtonAction": "Check-In here",
-      "Success": "You have successfully registered!",
-      "UID": "Your UID is: ",
-      "QRCode": "Your QR Code is: ",
-      "GoBack": "Go back",
-      "Error": "An error has occurred!"
+      "LeftMain1": "欢迎来到",
+      "LeftMain2": "COVID登记",
+      "LeftMain3": "立即注册",
+      "Header": "注册",
+      "Name": "名字",
+      "NameLabel": "请输入您的姓名",
+      "NameError": "请输入您的名字",
+      "Email": "电子邮件",
+      "EmailLabel": "请输入您的电子邮件",
+      "EmailError": "请输入电子邮件地址",
+      "Phone": "电话",
+      "PhoneLabel": "请输入您的电话号码",
+      "PhoneError": "请输入电话号码",
+      "RegisterButton": "注册",
+      "ReturnButton": "已经有帐户了？ ",
+      "ReturnButtonAction": "在此处办理登机手续",
+      "Success": "您已经成功注册了",
+      "UID": " 您的用户身份是： ",
+      "QRCode": "您的二维码是： ",
+      "GoBack": "回去",
+      "Error": "发生了错误"
     },
     "SetupPage": {
-      "Header": "Setup location",
-      "Location": "Location",
-      "LocationLabel": "Please enter your location",
-      "LocationError": "Please enter a location",
-      "SetupButton": "Setup",
-      "LeftMain1": "Welcome to",
-      "LeftMain2": "COVID CHECK-IN",
-      "LeftMain3": "Setup!",
-      "Setup": "Setup",
-      "GoBack": "Go back",
-      "SetupSuccess": "You have successfully setup!",
-      "SetupSuccessInfo": "Your location is: "
+      "Header": "设置地点",
+      "Location": "位置",
+      "LocationLabel": "请输入您的地点",
+      "LocationError": "请输入您的地点",
+      "SetupButton": "设置",
+      "LeftMain1": "欢迎来到",
+      "LeftMain2": "COVID登记",
+      "LeftMain3": "设置！",
+      "Setup": "设置",
+      "GoBack": "返回",
+      "SetupSuccess": "您已成功设置！",
+      "SetupSuccessInfo": "您的地点是： "
     },
     "CheckInSuccess": {
-      "Success": "Check-In Successful",
-      "Thanks": "Thanks for checking in!",
-      "Location": "Location: ",
-      "RetryButton": "Check-in Again"
+      "Success": "成功登记了",
+      "Thanks": "感谢您的登记",
+      "Location": "地点 ",
+      "RetryButton": "再次办理登机手续"
     },
     "CheckInError": {
-      "ErrorNotice": "Something went wrong when checking in...",
-      "AskStaff": "Please see staff for assistance - ",
-      "RetryButton": "Check-in Again"
+      "ErrorNotice": "办理登机手续时出了问题...",
+      "AskStaff": "请参阅工作人员寻求帮助 - ",
+      "RetryButton": "再次办理登机手续"
     },
     "RegistrationConfirm": {
-      "Thanks": "Thank you for registering!",
-      "UserID": "User ID: ",
-      "UseThis": "Use this UID to Check-In!",
-      "ReturnButton": "Return to Homepage"
+      "Thanks": "感谢您的注册！",
+      "UserID": "用户身份 ",
+      "UseThis": "使用此唯一标识办理登机手续！",
+      "ReturnButton": "返回主页"
     },
     "CheckInOffline": {
-      "Heading": "You are offline",
-      "Info": "Your UID has been stored and will update when connection is restored",
-      "RetryButton": "Check-in Again"
+      "Heading": "您现在离线",
+      "Info": "您的UID已经存储了并将在连接恢复时更新",
+      "RetryButton": "再次办理登机手续"
     }
   }
 }
