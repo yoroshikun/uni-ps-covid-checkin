@@ -22,12 +22,13 @@
 .topWindow {
   padding: 0 1.5rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: flex-end;
   height: 2rem;
   width: 100%;
   background-color: #cccccc;
+  color: #636363;
 }
 
 .background {
@@ -48,4 +49,20 @@
   position: relative;
   justify-content: center;
   align-items: center;
+}
+
+.topWindow h3 {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 100%;
+  text-align: end;
+  font-size: 1.2em;
+}
+
+.topWindow h2 {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 100%;
+  text-align: start;
+  font-size: 1.2em;
 }
