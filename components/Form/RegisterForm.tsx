@@ -4,9 +4,31 @@ import QRCode from 'react-qr-code';
 import Link from 'next/link';
 import { Users, Envelope, Phone } from 'phosphor-react';
 import { useTranslation } from 'react-i18next';
+import Lottie from 'react-lottie';
 
 import registerUser from '../../lib/registerUser';
 import styles from '../../styles/RegisterForm.module.css';
+
+import errorAnimation from '../../lottie/error.json';
+import loadingAnimation from '../../lottie/loading.json';
+
+const errorAni = {
+  loop: true,
+  autoplay: true,
+  animationData: errorAnimation,
+  rendererSettings: {
+    preserveAspectRatio: 'xMidYMid slice',
+  },
+};
+
+const loadingAni = {
+  loop: true,
+  autoplay: true,
+  animationData: loadingAnimation,
+  rendererSettings: {
+    preserveAspectRatio: 'xMidYMid slice',
+  },
+};
 
 interface FormData {
   name: string;
@@ -27,6 +49,7 @@ const RegisterForm = () => {
   const [stage, setStage] = useState(0);
 
   const onSubmit = async ({ name, email, phone }: FormData) => {
+    setStage(3);
     try {
       const user = await registerUser({ name, email, phone });
 
@@ -34,6 +57,7 @@ const RegisterForm = () => {
       setStage(1);
     } catch (err: any) {
       setError(err.message);
+      setStage(2);
     }
   };
 
@@ -108,11 +132,12 @@ const RegisterForm = () => {
       </div>
     </form>
   ) : stage === 1 ? (
-    <div>
-      <h2>{t('RegisterPage.Success')}</h2>
-      <p>{`${t('RegisterOage.UID')}${uid}`}</p>
+    <div className={styles.confirmationContainer}>
+      <h1>{t('RegisterPage.Success')}</h1>
+      <h3>{`${t('RegisterOage.UID')}${uid}`}</h3>
       <p>{t('RegisterPage.QRCode')}</p>
       <QRCode value={`${Buffer.from(uid || '').toString('base64')}`} />
+
       <button
         onClick={() => {
           setStage(0);
@@ -124,8 +149,9 @@ const RegisterForm = () => {
       </button>
     </div>
   ) : stage === 2 ? (
-    <div>
-      <h2>{t('RegisterPage.Error')}</h2>
+    <div className={styles.confirmationContainer}>
+      <h1>{t('RegisterPage.Error')}</h1>
+      <Lottie options={errorAni} height={400} width={400} />
       <p>{error}</p>
       <button
         onClick={() => {
@@ -136,6 +162,10 @@ const RegisterForm = () => {
       >
         {t('RegisterPage.GoBack')}
       </button>
+    </div>
+  ) : stage === 3 ? (
+    <div className={styles.loading}>
+      <Lottie options={loadingAni} height={400} width={400} />
     </div>
   ) : null;
 };
