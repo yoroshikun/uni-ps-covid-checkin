@@ -1,85 +1,85 @@
 {
   "translation": {
     "homepage": {
-      "LeftMain1": "Welcome to",
-      "LeftMain2": "COVID CHECK-IN",
-      "LeftMain3": "Check-in with UID",
-      "UniqueIdentification": "Unique Identification",
-      "EnterUID": "Please enter UID",
-      "CheckIn": "Check-In",
-      "ScanQR": "Scan QR",
-      "RegisterButton": "Don't have an account?",
-      "RegisterButtonAction": "Register here",
-      "EmptyError": "Please fill in this field",
-      "InvalidError": "Please enter a valid UID",
-      "Location": "Location: "
+      "LeftMain1": "Καλώς ήρθατε στο",
+      "LeftMain2": "COVID άφιξη",
+      "LeftMain3": "Άφιξη με μοναδικό αναγνωριστικό",
+      "UniqueIdentification": "Μοναδική αναγνώριση",
+      "EnterUID": "Πληκτρολογήστε μοναδικό αναγνωριστικό",
+      "CheckIn": "άφιξη",
+      "ScanQR": "σάρωση QR",
+      "RegisterButton": "Δεν έχεις λογαριασμό;",
+      "RegisterButtonAction": "Εγγραφείτε εδώ",
+      "EmptyError": "Συμπληρώστε αυτό το πεδίο",
+      "InvalidError": "Πληκτρολογήστε ένα έγκυρο μοναδικό αναγνωριστικό",
+      "Location": "Τοποθεσία: "
     },
     "ScanQRPage": {
-      "LeftMain1": "Welcome to",
-      "LeftMain2": "COVID CHECK-IN",
-      "LeftMain3": "Scan QR",
-      "Header": "Scan QR Code",
-      "Location": "Location: ",
-      "ReturnButton": "Login with UID"
+      "LeftMain1": "Καλώς ήρθατε στο",
+      "LeftMain2": "COVID άφιξη",
+      "LeftMain3": "Άφιξη με μοναδικό αναγνωριστικό",
+      "Header": "Κωδικός QR σάρωσης",
+      "Location": "Τοποθεσία: ",
+      "ReturnButton": "Σύνδεση με μοναδικό αναγνωριστικό"
     },
     "RegisterPage": {
-      "LeftMain1": "Welcome to",
-      "LeftMain2": "COVID CHECK-IN",
-      "LeftMain3": "Register now",
-      "Header": "Registration",
-      "Name": "Name",
-      "NameLabel": "Please enter your name",
-      "NameError": "Please enter a name",
+      "LeftMain1": "Καλώς ήρθατε στο",
+      "LeftMain2": "COVID άφιξη",
+      "LeftMain3": "Εγγραφείτε τώρα",
+      "Header": "Εγγραφή",
+      "Name": "Όνομα",
+      "NameLabel": "Παρακαλώ εισάγετε το όνομά σας",
+      "NameError": "Πληκτρολογήστε ένα όνομα",
       "Email": "Email",
-      "EmailLabel": "Please enter your email",
-      "EmailError": "Please enter a valid email",
-      "Phone": "Phone",
-      "PhoneLabel": "Please enter your phone number",
-      "PhoneError": "Please enter a valid phone number",
-      "RegisterButton": "Register",
-      "ReturnButton": "Already have an account? ",
-      "ReturnButtonAction": "Check-In here",
-      "Success": "You have successfully registered!",
-      "UID": "Your UID is: ",
-      "QRCode": "Your QR Code is: ",
-      "GoBack": "Go back",
-      "Error": "An error has occurred!"
+      "EmailLabel": "Παρακαλώ εισάγετε το email σας",
+      "EmailError": "Πληκτρολογήστε ένα έγκυρο μήνυμα ηλεκτρονικού ταχυδρομείου",
+      "Phone": "Τηλέφωνο",
+      "PhoneLabel": "Παρακαλώ εισάγετε τον αριθμό τηλεφώνου σας",
+      "PhoneError": "Πληκτρολογήστε έναν έγκυρο αριθμό τηλεφώνου",
+      "RegisterButton": "Εγγράψου.",
+      "ReturnButton": "Έχεις ήδη λογαριασμό; ",
+      "ReturnButtonAction": "Κάντε check-in εδώ",
+      "Success": "Έχετε εγγραφεί με επιτυχία!",
+      "UID": "Η μοναδική σας ταυτότητα είναι:",
+      "QRCode": "Ο κωδικός QR είναι: ",
+      "GoBack": "Πήγαινε πίσω",
+      "Error": "Παρουσιάστηκε σφάλμα!"
     },
     "SetupPage": {
-      "Header": "Setup location",
-      "Location": "Location",
-      "LocationLabel": "Please enter your location",
-      "LocationError": "Please enter a location",
-      "SetupButton": "Setup",
-      "LeftMain1": "Welcome to",
-      "LeftMain2": "COVID CHECK-IN",
-      "LeftMain3": "Setup!",
-      "Setup": "Setup",
-      "GoBack": "Go back",
-      "SetupSuccess": "You have successfully setup!",
-      "SetupSuccessInfo": "Your location is: "
+      "Header": "Θέση εγκατάστασης",
+      "Location": "Τοποθεσία",
+      "LocationLabel": "Παρακαλώ εισάγετε την τοποθεσία σας",
+      "LocationError": "Πληκτρολογήστε μια τοποθεσία",
+      "SetupButton": "Εγκατάστασης",
+      "LeftMain1": "Καλώς ήρθατε στο",
+      "LeftMain2": "COVID άφιξη",
+      "LeftMain3": "Εγκατάστασης!",
+      "Setup": "Εγκατάστασης",
+      "GoBack": "Πήγαινε πίσω",
+      "SetupSuccess": "Έχετε ρυθμίσει με επιτυχία!",
+      "SetupSuccessInfo": "Η τοποθεσία σας είναι: "
     },
     "CheckInSuccess": {
-      "Success": "Check-In Successful",
-      "Thanks": "Thanks for checking in!",
-      "Location": "Location: ",
-      "RetryButton": "Check-in Again"
+      "Success": "Το check-in ολοκληρώθηκε με επιτυχία",
+      "Thanks": "Ευχαριστώ για το Μεταβίβαση ελέγχου!",
+      "Location": "Τοποθεσία: ",
+      "RetryButton": "Κάντε ξανά check-in"
     },
     "CheckInError": {
-      "ErrorNotice": "Something went wrong when checking in...",
-      "AskStaff": "Please see staff for assistance - ",
-      "RetryButton": "Check-in Again"
+      "ErrorNotice": "Κάτι πήγε στραβά κατά το check-in...",
+      "AskStaff": "Παρακαλείστε να επισκεφθείτε το προσωπικό για βοήθεια - ",
+      "RetryButton": "Κάντε ξανά check-in"
     },
     "RegistrationConfirm": {
-      "Thanks": "Thank you for registering!",
-      "UserID": "User ID: ",
-      "UseThis": "Use this UID to Check-In!",
-      "ReturnButton": "Return to Homepage"
+      "Thanks": "Σας ευχαριστούμε για την εγγραφή σας!",
+      "UserID": "Μοναδικό αναγνωριστικό: ",
+      "UseThis": "Χρησιμοποιήστε αυτό το μοναδικό αναγνωριστικό για να κάνετε check-in!",
+      "ReturnButton": "Επιστροφή στην Αρχική σελίδα"
     },
     "CheckInOffline": {
-      "Heading": "You are offline",
-      "Info": "Your UID has been stored and will update when connection is restored",
-      "RetryButton": "Check-in Again"
+      "Heading": "Είστε εκτός σύνδεσης",
+      "Info": "Το μοναδικό αναγνωριστικό σας έχει αποθηκευτεί και θα ενημερωθεί όταν αποκατασταθεί η σύνδεση",
+      "RetryButton": "Κάντε ξανά check-in"
     }
   }
 }

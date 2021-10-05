@@ -112,7 +112,7 @@ const CheckInForm = ({ locations }: { locations: Location[] }) => {
         <input
           inputMode="numeric"
           pattern="[0-9]*"
-          placeholder="Please enter UID"
+          placeholder={t('homepage.EnterUID')}
           type="text"
           required
           {...register('uid', { required: true, maxLength: 7, minLength: 7 })}

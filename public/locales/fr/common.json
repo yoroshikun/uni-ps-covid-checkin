@@ -1,85 +1,85 @@
 {
   "translation": {
     "homepage": {
-      "LeftMain1": "Welcome to",
-      "LeftMain2": "COVID CHECK-IN",
-      "LeftMain3": "Check-in with UID",
-      "UniqueIdentification": "Unique Identification",
-      "EnterUID": "Please enter UID",
-      "CheckIn": "Check-In",
-      "ScanQR": "Scan QR",
-      "RegisterButton": "Don't have an account?",
-      "RegisterButtonAction": "Register here",
-      "EmptyError": "Please fill in this field",
-      "InvalidError": "Please enter a valid UID",
-      "Location": "Location: "
+      "LeftMain1": "Bienvenue sur",
+      "LeftMain2": "CAHIER DE RAPPEL COVID",
+      "LeftMain3": "Enregistrement avec l'UID",
+      "UniqueIdentification": "Identifiant unique",
+      "EnterUID": "Veuillez saisir l'UID",
+      "CheckIn": "Enregistrement",
+      "ScanQR": "Scanner QR",
+      "RegisterButton": "Vous n’avez pas de compte ?",
+      "RegisterButtonAction": "Inscrivez-vous ici",
+      "EmptyError": "Veuillez remplir ce champ",
+      "InvalidError": "Veuillez saisir un UID valide",
+      "Location": "Lieu : "
     },
     "ScanQRPage": {
-      "LeftMain1": "Welcome to",
-      "LeftMain2": "COVID CHECK-IN",
-      "LeftMain3": "Scan QR",
-      "Header": "Scan QR Code",
-      "Location": "Location: ",
-      "ReturnButton": "Login with UID"
+      "LeftMain1": "Bienvenue sur",
+      "LeftMain2": "CAHIER DE RAPPEL COVID",
+      "LeftMain3": "Scanner QR",
+      "Header": "Scanner le code QRe",
+      "Location": "Lieu : ",
+      "ReturnButton": "Se connecter avec un UIDD"
     },
     "RegisterPage": {
-      "LeftMain1": "Welcome to",
-      "LeftMain2": "COVID CHECK-IN",
-      "LeftMain3": "Register now",
-      "Header": "Registration",
-      "Name": "Name",
-      "NameLabel": "Please enter your name",
-      "NameError": "Please enter a name",
-      "Email": "Email",
-      "EmailLabel": "Please enter your email",
-      "EmailError": "Please enter a valid email",
-      "Phone": "Phone",
-      "PhoneLabel": "Please enter your phone number",
-      "PhoneError": "Please enter a valid phone number",
-      "RegisterButton": "Register",
-      "ReturnButton": "Already have an account? ",
-      "ReturnButtonAction": "Check-In here",
-      "Success": "You have successfully registered!",
-      "UID": "Your UID is: ",
-      "QRCode": "Your QR Code is: ",
-      "GoBack": "Go back",
-      "Error": "An error has occurred!"
+      "LeftMain1": "Bienvenue sur",
+      "LeftMain2": "CAHIER DE RAPPEL COVID",
+      "LeftMain3": "Inscrivez-vous maintenant",
+      "Header": "Inscription",
+      "Name": "Nom",
+      "NameLabel": "Veuillez saisir votre nom",
+      "NameError": "Veuillez saisir un nom",
+      "Email": "E-mail",
+      "EmailLabel": "Veuillez saisir votre adresse e-mail",
+      "EmailError": "Veuillez saisir une adresse e-mail valide",
+      "Phone": "numéro de téléphone",
+      "PhoneLabel": "Veuillez saisir votre numéro de téléphone",
+      "PhoneError": "Veuillez saisir un numéro de téléphone valider",
+      "RegisterButton": "S'enregistrer",
+      "ReturnButton": "Vous avez déjà un compte ? ",
+      "ReturnButtonAction": "Connectez-vous ici",
+      "Success": "Vous vous êtes enregistré avec succès !",
+      "UID": "Votre UID est : ",
+      "QRCode": "Votre code QR est : ",
+      "GoBack": "Retour",
+      "Error": "Une erreur s'est produite !"
     },
     "SetupPage": {
-      "Header": "Setup location",
-      "Location": "Location",
-      "LocationLabel": "Please enter your location",
-      "LocationError": "Please enter a location",
-      "SetupButton": "Setup",
-      "LeftMain1": "Welcome to",
-      "LeftMain2": "COVID CHECK-IN",
-      "LeftMain3": "Setup!",
-      "Setup": "Setup",
-      "GoBack": "Go back",
-      "SetupSuccess": "You have successfully setup!",
-      "SetupSuccessInfo": "Your location is: "
+      "Header": "Régler la localisation",
+      "Location": "Lieu",
+      "LocationLabel": "Veuillez saisir le lieu où vous vous trouvez",
+      "LocationError": "Veuillez saisir un lieu",
+      "SetupButton": "Définir",
+      "LeftMain1": "Bienvenue sur",
+      "LeftMain2": "CAHIER DE RAPPEL COVID",
+      "LeftMain3": "Définir!",
+      "Setup": "Définir",
+      "GoBack": "Retour",
+      "SetupSuccess": "Lieu défini avec succès !",
+      "SetupSuccessInfo": "Vous vous trouvez à : "
     },
     "CheckInSuccess": {
-      "Success": "Check-In Successful",
-      "Thanks": "Thanks for checking in!",
-      "Location": "Location: ",
-      "RetryButton": "Check-in Again"
+      "Success": "Enregistré avec succès",
+      "Thanks": "Merci de vous être enregistré !",
+      "Location": "Lieu : ",
+      "RetryButton": "S'enregistrer à nouveau"
     },
     "CheckInError": {
-      "ErrorNotice": "Something went wrong when checking in...",
-      "AskStaff": "Please see staff for assistance - ",
-      "RetryButton": "Check-in Again"
+      "ErrorNotice": "Quelque chose s’est mal passé lors de l’enregistrement...",
+      "AskStaff": "Veuillez consulter le personnel pour obtenir de l'aide - ",
+      "RetryButton": "S'enregistrer à nouveau"
     },
     "RegistrationConfirm": {
-      "Thanks": "Thank you for registering!",
-      "UserID": "User ID: ",
-      "UseThis": "Use this UID to Check-In!",
-      "ReturnButton": "Return to Homepage"
+      "Thanks": "Merci de vous être inscrit !",
+      "UserID": "Identifiant : ",
+      "UseThis": "Utilisez cet identifiant pour vous enregistrer !",
+      "ReturnButton": "Retour à la page d’accueil"
     },
     "CheckInOffline": {
-      "Heading": "You are offline",
-      "Info": "Your UID has been stored and will update when connection is restored",
-      "RetryButton": "Check-in Again"
+      "Heading": "Vous êtes hors ligne",
+      "Info": "votre identifiant unique a été  stocké et sera mis à jour lorsque la connexion sera rétablie",
+      "RetryButton": "S'enregistrer à nouveau"
     }
   }
 }
