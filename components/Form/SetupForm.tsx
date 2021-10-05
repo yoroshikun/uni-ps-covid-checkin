@@ -99,7 +99,7 @@ const SetupForm = () => {
         />
       </div>
 
-      <div className={styles.setupButton}>
+      <div className={styles.button}>
         <button type="submit">{t('SetupPage.Setup')}</button>
       </div>
 
@@ -115,10 +115,12 @@ const SetupForm = () => {
       <Lottie options={confirmationAni} height={400} width={400} />
 
       <p>{`${t('SetupPage.SetupSuccessInfo')}${location}`}</p>
-      <div className={styles.setupButton}>
-        <Link href="/" passHref>
-          <a>{t('SetupPage.GoBack')}</a>
-        </Link>
+      <div className={styles.button}>
+        <button>
+          <Link href="/" passHref>
+            <a>{t('SetupPage.GoBack')}</a>
+          </Link>
+        </button>
       </div>
     </div>
   ) : stage === 2 ? (
@@ -126,7 +128,7 @@ const SetupForm = () => {
       <h2>{t('CheckInError.ErrorNotice')}</h2>
       <Lottie options={errorAni} height={400} width={400} />
       <p>{error}</p>
-      <div className={styles.setupButton}>
+      <div className={styles.button}>
         <button
           onClick={() => {
             setStage(0);

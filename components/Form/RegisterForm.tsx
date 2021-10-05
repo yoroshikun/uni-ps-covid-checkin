@@ -102,7 +102,7 @@ const RegisterForm = () => {
         />
       </div>
 
-      <div className={styles.registerButton}>
+      <div className={styles.button}>
         <button type="submit" value="Register">
           {t('RegisterPage.RegisterButton')}
         </button>

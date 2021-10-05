@@ -42,14 +42,14 @@
   font-family: 'Helvetica-Light', sans-serif;
 }
 
-.installButton {
+.button {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.installButton button {
+.button button {
   background-color: #6678a3;
   border: none;
   color: white;
@@ -65,7 +65,7 @@
   width: 18em;
 }
 
-.installButton button:hover {
+.button button:hover {
   background-color: #7c8eb6;
   color: white;
   transform: scale(1.1);
