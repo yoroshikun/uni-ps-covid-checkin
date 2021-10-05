@@ -49,14 +49,14 @@
       "Header": "设置地点",
       "Location": "位置",
       "LocationLabel": "请输入您的地点",
-      "LocationError": "请输入您的地点",
+      "LocationError": "请输入一个地点",
       "SetupButton": "设置",
       "LeftMain1": "欢迎来到",
       "LeftMain2": "COVID登记",
       "LeftMain3": "设置！",
       "Setup": "设置",
       "GoBack": "返回",
-      "SetupSuccess": "您已成功设置！",
+      "SetupSuccess": "您已设置成功了！",
       "SetupSuccessInfo": "您的地点是： "
     },
     "CheckInSuccess": {
@@ -78,7 +78,7 @@
     },
     "CheckInOffline": {
       "Heading": "您现在离线",
-      "Info": "您的UID已经存储了并将在连接恢复时更新",
+      "Info": "您的UID已被存储，并会在恢复连接时更新",
       "RetryButton": "再次办理登机手续"
     }
   }
