@@ -3,7 +3,7 @@
   top: 1.5rem;
   left: 1.5rem;
   width: 2.5rem;
-  z-index: 9;
+  z-index: 10;
 }
 
 .translateIcon:hover {
@@ -17,7 +17,7 @@
   width: 200px;
   top: 4.5rem;
   left: 1.5rem;
-  z-index: 2;
+  z-index: 10;
   border: 1px solid rgba(0, 0, 0, 0.04);
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
   background-color: azure;

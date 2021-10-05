@@ -41,3 +41,17 @@
 .line3 {
   font-size: 19px;
 }
+
+.settingsIcon {
+  position: fixed;
+  top: 4.6rem;
+  left: 1.5rem;
+  width: 2.5rem;
+  z-index: 9;
+}
+
+.settingsIcon:hover {
+  cursor: pointer;
+  opacity: 40%;
+  transition-duration: 0.4s;
+}

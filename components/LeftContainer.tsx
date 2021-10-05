@@ -1,7 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import Lottie from 'react-lottie';
+import Link from 'next/link';
+import Image from 'next/image';
 
 import LocaleSwitcher from './LocaleSwitcher';
+import settingsImage from '../public/settings.png';
 import styles from '../styles/LeftContainer.module.css';
 
 import backgroundAnimation from '../lottie/background.json';
@@ -31,6 +34,12 @@ const LeftContainer = ({ tkey }: { tkey: string }) => {
   return (
     <div className={styles.leftWindow}>
       <LocaleSwitcher />
+
+      <div className={styles.settingsIcon}>
+        <Link href="/setup" passHref>
+          <Image src={settingsImage} alt="settings icon"></Image>
+        </Link>
+      </div>
 
       <p className={styles.line1}>{t(`${tkey}.LeftMain1`)}</p>
       <p className={styles.line2}>{t(`${tkey}.LeftMain2`)}</p>
