@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import RegisterForm from '../components/Form/RegisterForm';
 import Head from '../components/Layout/Head';
 import LeftContainer from '../components/LeftContainer';
+import TopWindow from '../components/TopWindow';
 import styles from '../styles/Home.module.css';
 
 const Register: NextPage = () => {
@@ -19,7 +20,7 @@ const Register: NextPage = () => {
       <LeftContainer tkey="RegisterPage" />
 
       <div className={styles.rightContainer}>
-        <div className={styles.topWindow}></div>
+        <TopWindow />
 
         <div className={styles.subContainer}>
           <Head
@@ -27,7 +28,6 @@ const Register: NextPage = () => {
             description="Register with ease with this Terminal"
           />
 
-          <h1>{t('RegisterPage.Header')}</h1>
           <RegisterForm />
         </div>
       </div>

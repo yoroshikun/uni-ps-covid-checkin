@@ -10,6 +10,7 @@ import checkInUser from '../lib/checkInUser';
 import handleOffline from '../lib/handleOffline';
 import Head from '../components/Layout/Head';
 import LeftContainer from '../components/LeftContainer';
+import TopWindow from '../components/TopWindow';
 import prisma from '../lib/prisma';
 import styles from '../styles/QRScan.module.css';
 
@@ -108,7 +109,7 @@ const Home: NextPage<{ locations: Location[] }> = ({ locations }) => {
       <LeftContainer tkey="ScanQRPage" />
 
       <div className={styles.rightContainer}>
-        <div className={styles.topWindow}></div>
+        <TopWindow />
 
         {stage === 0 ? (
           <div className={styles.QRContainer}>

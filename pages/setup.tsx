@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import SetupForm from '../components/Form/SetupForm';
 import Head from '../components/Layout/Head';
 import LeftContainer from '../components/LeftContainer';
+import TopWindow from '../components/TopWindow';
 import styles from '../styles/Home.module.css';
 
 const Setup: NextPage = () => {
@@ -19,10 +20,9 @@ const Setup: NextPage = () => {
       <LeftContainer tkey="SetupPage" />
 
       <div className={styles.rightContainer}>
-        <div className={styles.topWindow}></div>
+        <TopWindow />
 
         <div className={styles.subContainer}>
-          <h1>{t('SetupPage.Header')}</h1>
           <SetupForm />
         </div>
       </div>
